@@ -3,407 +3,343 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<link rel="icon" type="image/png" href="assets/gsrg-mark.png">
+<link rel="icon" type="image/png" href="assets/brand/favicon.png">
 <style>
 /* Base reset */
-:root { color-scheme: light; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
 body { margin: 0; }
 img { max-width: 100%; }
 [hidden] { display: none !important; }
 </style>
-<title>Green Shipping Research Group</title>
-<meta name="description" content="Green Shipping Research Group, Maynooth University School of Business. Research on the green transition of the maritime industry: technology, roadmaps and compliance.">
+<title>GREENSHIP Research Group</title>
+<meta name="description" content="GREENSHIP, the Maritime Energy Transition Research Group at Maynooth University School of Business: alternative fuels, green shipping corridors, onshore power supply and decarbonisation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
 <style>
-/* Layout: "chart room". One column of sheets under a sticky header; the logo's navy and sea blues, DIN-like uppercase labels echoing the wordmark, a graticule chart of the Irish Sea as the one signature detail. */
+/* Layout: "bright quay". A white page in the logo's colours: navy-to-green brand rule under the header,
+   alternating pale sea-green bands, the logo's four icons as the group's research themes.
+   Single light theme by design (the client asked for a light version). */
 :root {
-  --paper: #f4f7f8;
+  color-scheme: light;
+  --bg: #ffffff;
+  --tint: #f1f7f5;
+  --tint-2: #e6f1ee;
   --surface: #ffffff;
-  --ink: #0f2a3d;
-  --sea: #1b6c95;
-  --spray: #9cc6d6;
-  --foam: #e4eff4;
-  --line: #d3dfe5;
-  --muted: #4f6a7a;
+  --ink: #0c2b4b;
+  --navy: #133f79;
+  --blue: #1665ad;
+  --teal: #0d8590;
+  --green: #22834a;
+  --lime: #7bbf45;
+  --line: #d8e5e2;
+  --muted: #4c6272;
   --todo: #96560f;
   --todo-bg: #fff6e8;
-  --band: #0d2536;
-  --band-fg: #e1ebf0;
-  --band-muted: #9db5c2;
-  --band-accent: #74b9d8;
-  --band-line: #22425a;
-  --logo-bg: #ffffff;
-  --logo-ink: #0f2a3d;
-  --show-light: inline-block;
-  --show-dark: none;
-  --f-display: "Barlow", "DIN Alternate", "Helvetica Neue", Arial, sans-serif;
+  --brand: linear-gradient(90deg, #133f79 0%, #1665ad 36%, #12928c 66%, #74bd42 100%);
+  --f-display: "Montserrat", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
   --f-body: "Source Serif 4", Georgia, "Times New Roman", serif;
   --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
-  --radius: 6px;
+  --radius: 8px;
   --wrap: 1180px;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper: #0a1a26; --surface: #0f2433; --ink: #e2ecf1; --sea: #6fb6d6; --spray: #2f617a;
-    --foam: #12303f; --line: #1f3b4d; --muted: #93acb9; --todo: #f0b765; --todo-bg: #2a2214;
-    --band: #06121b; --band-fg: #e1ebf0; --band-muted: #8ca5b3; --band-accent: #74b9d8; --band-line: #1b3346;
-    --show-light: none; --show-dark: inline-block;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --paper: #0a1a26; --surface: #0f2433; --ink: #e2ecf1; --sea: #6fb6d6; --spray: #2f617a;
-  --foam: #12303f; --line: #1f3b4d; --muted: #93acb9; --todo: #f0b765; --todo-bg: #2a2214;
-  --band: #06121b; --band-fg: #e1ebf0; --band-muted: #8ca5b3; --band-accent: #74b9d8; --band-line: #1b3346;
-  --show-light: none; --show-dark: inline-block;
-  color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body {
-  background: var(--paper);
-  color: var(--ink);
-  font: 400 1.0625rem/1.62 var(--f-body);
-  -webkit-font-smoothing: antialiased;
-}
-body::before {
-  content: ""; position: fixed; inset: 0 0 auto;
-  height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--paper);
-}
-a { color: var(--sea); text-underline-offset: 3px; text-decoration-thickness: 1px; }
-a:hover { text-decoration-thickness: 2px; }
-:focus-visible { outline: 2px solid var(--sea); outline-offset: 3px; border-radius: 2px; }
+body { background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.62 var(--f-body); -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+a { color: var(--blue); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { color: var(--navy); text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 2px; }
 p { margin: 0 0 1em; }
 .wrap {
-  max-width: var(--wrap);
-  margin-inline: auto;
+  max-width: var(--wrap); margin-inline: auto;
   padding-left: max(clamp(16px, 4vw, 40px), env(safe-area-inset-left, 0px));
   padding-right: max(clamp(16px, 4vw, 40px), env(safe-area-inset-right, 0px));
 }
-.skip { position: absolute; left: -999px; top: 8px; z-index: 50; background: var(--ink); color: var(--paper); padding: 8px 12px; border-radius: var(--radius); }
+.skip { position: absolute; left: -999px; top: 8px; z-index: 50; background: var(--navy); color: #fff; padding: 8px 12px; border-radius: var(--radius); }
 .skip:focus { left: 16px; }
 
 /* Draft notice + placeholders */
 .draftbar { background: var(--todo-bg); color: var(--todo); border-bottom: 1px solid var(--line); }
-.draftbar .wrap { padding-block: 8px; font: 500 .82rem/1.4 var(--f-display); letter-spacing: .02em; }
+.draftbar .wrap { padding-block: 8px; font: 500 .8rem/1.4 var(--f-display); }
 .todo {
   display: inline-block; padding: 0 7px; border: 1px dashed var(--todo); border-radius: 4px;
   color: var(--todo); background: var(--todo-bg);
-  font: 600 .68rem/1.6 var(--f-display); letter-spacing: .1em; text-transform: uppercase;
-  vertical-align: .14em; white-space: nowrap;
+  font: 700 .64rem/1.65 var(--f-display); letter-spacing: .1em; text-transform: uppercase; vertical-align: .14em; white-space: nowrap;
 }
-.todo-block {
-  border: 1px dashed var(--todo); background: var(--todo-bg); border-radius: 10px;
-  padding: 16px 20px; font-size: .98rem;
-}
+.todo-block { border: 1px dashed var(--todo); background: var(--todo-bg); border-radius: 10px; padding: 16px 20px; font-size: .98rem; }
 .todo-block p:last-child { margin: 0; }
 .todo-block .todo { margin-right: 6px; }
-.note { font: 400 .82rem/1.45 var(--f-display); color: var(--muted); letter-spacing: .01em; }
+.note { font: 500 .8rem/1.5 var(--f-display); color: var(--muted); }
 
 /* Header */
-.site-header {
-  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
-  background: var(--paper); border-bottom: 1px solid var(--line);
-}
+.site-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--bg); }
+.site-header::after { content: ""; display: block; height: 3px; background: var(--brand); }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 10px; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); min-width: 0; }
-.brand img { height: 48px; width: auto; }
-.mark-light { display: var(--show-light); }
-.mark-dark { display: var(--show-dark); }
-.wordmark { display: flex; flex-direction: column; font: 500 .98rem/1.08 var(--f-display); letter-spacing: .07em; text-transform: uppercase; }
-.wordmark .w2 { color: var(--sea); }
+.brand img { height: 52px; width: auto; }
+.wordmark { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.wordmark .name {
+  font: 800 1.45rem/1 var(--f-display); letter-spacing: .01em;
+  background: var(--brand); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.wordmark .sub { font: 600 .6rem/1.25 var(--f-display); letter-spacing: .16em; text-transform: uppercase; color: var(--navy); }
 .nav ul { display: flex; gap: 2px; list-style: none; margin: 0; padding: 0; }
 .nav a {
-  display: block; padding: 10px 12px;
-  font: 500 .84rem/1 var(--f-display); letter-spacing: .12em; text-transform: uppercase;
+  display: block; padding: 10px 12px; font: 600 .8rem/1 var(--f-display); letter-spacing: .1em; text-transform: uppercase;
   color: var(--ink); text-decoration: none; border-bottom: 2px solid transparent;
 }
-.nav a:hover { color: var(--sea); }
-.nav a[aria-current="page"] { color: var(--sea); border-bottom-color: var(--sea); }
+.nav a:hover { color: var(--blue); }
+.nav a[aria-current="page"] { color: var(--blue); border-bottom-color: var(--lime); }
 .menu-btn {
-  display: none; align-items: center; gap: 8px; padding: 9px 12px;
-  border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--ink);
-  font: 500 .8rem/1 var(--f-display); letter-spacing: .12em; text-transform: uppercase; cursor: pointer;
+  display: none; align-items: center; gap: 8px; padding: 9px 12px; border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--surface); color: var(--ink); font: 600 .78rem/1 var(--f-display); letter-spacing: .1em; text-transform: uppercase; cursor: pointer;
 }
 .menu-btn svg { width: 16px; height: 16px; }
 .menu-btn path { stroke: currentColor; stroke-width: 1.8; fill: none; stroke-linecap: round; }
-@media (max-width: 860px) {
+@media (max-width: 900px) {
   .menu-btn { display: inline-flex; }
-  .nav { position: absolute; left: 0; right: 0; top: 100%; background: var(--paper); border-bottom: 1px solid var(--line); display: none; }
+  .nav { position: absolute; left: 0; right: 0; top: 100%; background: var(--bg); border-bottom: 1px solid var(--line); display: none; box-shadow: 0 8px 20px rgba(12, 43, 75, .08); }
   .nav.open { display: block; }
-  .nav ul {
-    flex-direction: column; padding-block: 6px 14px;
-    padding-left: max(16px, env(safe-area-inset-left, 0px));
-    padding-right: max(16px, env(safe-area-inset-right, 0px));
-  }
+  .nav ul { flex-direction: column; padding-block: 6px 14px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
   .nav a { padding: 14px 4px; border-bottom: 1px solid var(--line); }
-  .nav a[aria-current="page"] { border-bottom-color: var(--sea); }
+  .nav a[aria-current="page"] { border-bottom-color: var(--lime); }
 }
-@media (max-width: 400px) { .wordmark { font-size: .86rem; } .brand img { height: 42px; } }
+@media (max-width: 420px) { .brand img { height: 44px; } .wordmark .name { font-size: 1.2rem; } .wordmark .sub { font-size: .52rem; letter-spacing: .12em; } }
 
 /* Type */
 h1, h2, h3 { text-wrap: balance; }
-.eyebrow { font: 500 .8rem/1.3 var(--f-display); letter-spacing: .16em; text-transform: uppercase; color: var(--sea); margin: 0 0 14px; }
-h1 { font: 500 clamp(2.15rem, 4.4vw, 3.4rem)/1.06 var(--f-display); letter-spacing: -.012em; margin: 0 0 20px; }
-h2 { font: 500 clamp(1.5rem, 2.6vw, 2rem)/1.15 var(--f-display); letter-spacing: -.005em; margin: 0 0 20px; }
-h3 { font: 600 1.18rem/1.25 var(--f-display); margin: 0 0 8px; }
+.eyebrow { font: 700 .74rem/1.3 var(--f-display); letter-spacing: .16em; text-transform: uppercase; color: var(--green); margin: 0 0 14px; }
+h1 { font: 700 clamp(2.05rem, 4.2vw, 3.2rem)/1.1 var(--f-display); letter-spacing: -.015em; color: var(--ink); margin: 0 0 20px; }
+h2 { font: 700 clamp(1.45rem, 2.5vw, 1.95rem)/1.2 var(--f-display); letter-spacing: -.01em; margin: 0 0 20px; }
+h3 { font: 700 1.08rem/1.3 var(--f-display); margin: 0 0 8px; }
 .lede { font-size: 1.16rem; line-height: 1.6; max-width: 58ch; margin: 0 0 28px; }
 .prose { max-width: 66ch; }
-.label { font: 500 .74rem/1.4 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+.label { font: 700 .7rem/1.4 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
 
 /* Buttons */
 .actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .btn {
-  display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px;
-  border: 1px solid var(--ink); border-radius: var(--radius);
-  font: 500 .84rem/1 var(--f-display); letter-spacing: .12em; text-transform: uppercase;
-  color: var(--ink); text-decoration: none; background: transparent;
+  display: inline-flex; align-items: center; gap: 8px; padding: 13px 20px; border: 1.5px solid var(--navy); border-radius: 999px;
+  font: 700 .78rem/1 var(--f-display); letter-spacing: .1em; text-transform: uppercase; color: var(--navy); text-decoration: none; background: transparent;
 }
-.btn:hover { background: var(--foam); text-decoration: none; }
-.btn.primary { background: var(--ink); color: var(--paper); }
-.btn.primary:hover { background: var(--sea); border-color: var(--sea); }
+.btn:hover { background: var(--tint); color: var(--navy); text-decoration: none; }
+.btn.primary { background: var(--navy); color: #ffffff; }
+.btn.primary:hover { background: var(--blue); border-color: var(--blue); color: #ffffff; }
 
 /* Sections */
-.section { padding-block: clamp(44px, 6vw, 76px); }
-.rule { border-top: 1px solid var(--line); }
+.section { padding-block: clamp(48px, 6vw, 80px); }
+.tint { background: var(--tint); }
 .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
 
 /* Hero */
-.hero .wrap {
-  display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr);
-  gap: clamp(28px, 5vw, 64px); align-items: center; padding-block: clamp(40px, 6vw, 80px);
+.hero .wrap { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(28px, 5vw, 72px); align-items: center; padding-block: clamp(36px, 5vw, 72px); }
+.hero-logo { margin: 0; display: flex; justify-content: center; }
+.hero-logo img { width: 100%; max-width: 440px; height: auto; }
+@media (max-width: 860px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); }
+  .hero-logo img { max-width: 300px; }
 }
-@media (max-width: 920px) { .hero .wrap { grid-template-columns: minmax(0, 1fr); } }
 
-/* Chart */
-.chart { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; min-width: 0; }
-.chart-head {
-  display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 12px 18px;
-  border-bottom: 1px solid var(--line);
-  font: 500 .72rem/1.3 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
-}
-.chart svg { display: block; width: 100%; height: auto; background: var(--foam); }
-.g-line { stroke: var(--line); stroke-width: 1; }
+/* Themes (logo icons) */
+.themes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(16px, 2.4vw, 28px); }
+.theme { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px 22px; min-width: 0; display: flex; flex-direction: column; }
+.theme img { width: 64px; height: 64px; margin-bottom: 14px; }
+.theme h3 { font-size: .9rem; letter-spacing: .1em; text-transform: uppercase; color: var(--navy); }
+.theme p { margin: 0; font-size: .98rem; }
+@media (max-width: 1000px) { .themes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .themes { grid-template-columns: minmax(0, 1fr); } .theme { flex-direction: row; gap: 16px; align-items: flex-start; } .theme img { width: 52px; height: 52px; flex: none; margin: 0; } }
+
+/* Featured report */
+.report { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); }
+.report > div, .report > ul { min-width: 0; }
+.report h2 { font-size: clamp(1.5rem, 2.8vw, 2.05rem); margin: 0 0 8px; }
+.report .sub { font: 500 1.05rem/1.4 var(--f-display); color: var(--muted); margin: 0 0 16px; }
+.report .authors { font: 500 .88rem/1.55 var(--f-display); color: var(--muted); margin: 0 0 18px; }
+.findings { list-style: none; margin: 0; padding: 0; align-self: center; }
+.findings li { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 14px; padding: 14px 0; border-top: 1px solid var(--line); }
+.findings li:last-child { border-bottom: 1px solid var(--line); }
+.findings .k { font: 700 .66rem/1.8 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.findings .big { display: block; font: 700 1.7rem/1.1 var(--f-display); color: var(--green); font-variant-numeric: tabular-nums; margin-bottom: 2px; }
+@media (max-width: 860px) { .report { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 440px) { .findings li { grid-template-columns: minmax(0, 1fr); gap: 4px; } }
+
+/* Featured project + chart */
+.project-feature { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
+.project-feature > div { min-width: 0; }
+@media (max-width: 900px) { .project-feature { grid-template-columns: minmax(0, 1fr); } }
+.chart { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; min-width: 0; }
+.chart-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 12px 18px; border-bottom: 1px solid var(--line); font: 700 .66rem/1.3 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.chart svg { display: block; width: 100%; height: auto; background: #f4f9fb; }
+.g-line { stroke: #d6e4e8; stroke-width: 1; }
 .g-lab { fill: var(--muted); font: 400 10px var(--f-mono); }
-.area { fill: var(--muted); font: 500 10.5px var(--f-display); letter-spacing: .28em; }
+.area { fill: var(--muted); font: 600 10px var(--f-display); letter-spacing: .28em; }
 .sea-name { fill: var(--muted); font: italic 400 13px var(--f-body); letter-spacing: .06em; }
-.route { stroke: var(--sea); stroke-width: 2.5; fill: none; stroke-dasharray: 7 6; stroke-linecap: round; }
-.route-lab { fill: var(--sea); font: 600 11px var(--f-display); letter-spacing: .14em; }
-.port { fill: var(--surface); stroke: var(--sea); stroke-width: 2.5; }
-.port-name { fill: var(--ink); font: 600 13px var(--f-display); }
+.route { stroke: var(--blue); stroke-width: 2.5; fill: none; stroke-dasharray: 7 6; stroke-linecap: round; }
+.route-lab { fill: var(--green); font: 700 10.5px var(--f-display); letter-spacing: .14em; }
+.port { fill: #ffffff; stroke: var(--blue); stroke-width: 2.5; }
+.port-name { fill: var(--ink); font: 700 12.5px var(--f-display); }
 .port-xy { fill: var(--muted); font: 400 10px var(--f-mono); }
-.ship { fill: var(--ink); }
+.ship { fill: var(--navy); }
 @media (max-width: 560px) {
-  .g-lab { font-size: 13px; }
-  .area { font-size: 13px; }
-  .sea-name { font-size: 17px; }
-  .route-lab { font-size: 14px; }
-  .port-name { font-size: 20px; }
-  .port-xy { display: none; }
+  .g-lab { font-size: 13px; } .area { font-size: 13px; } .sea-name { font-size: 17px; } .route-lab { font-size: 14px; } .port-name { font-size: 19px; } .port-xy { display: none; }
 }
-.chart figcaption { padding: 16px 18px 18px; }
-.chart figcaption h3 { font-size: 1.05rem; margin: 0 0 2px; }
-.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 14px 0 12px; }
-.facts div { min-width: 0; border-top: 1px solid var(--line); padding-top: 10px; }
-.facts dt { font: 500 .68rem/1.3 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
-.facts dd { margin: 4px 0 0; font: 500 1rem/1.25 var(--f-display); font-variant-numeric: tabular-nums; }
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 18px 0 14px; }
+.facts div { min-width: 0; border-top: 2px solid var(--lime); padding-top: 10px; }
+.facts dt { font: 700 .64rem/1.3 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.facts dd { margin: 4px 0 0; font: 700 1rem/1.25 var(--f-display); color: var(--navy); font-variant-numeric: tabular-nums; }
 @media (max-width: 520px) { .facts { grid-template-columns: minmax(0, 1fr); } }
-
-/* Pillars */
-.tagline { font: 500 clamp(1rem, 2.3vw, 1.4rem)/1.3 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--sea); margin: 0 0 30px; }
-.pillars { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(22px, 3vw, 40px); }
-.pillar { border-top: 2px solid var(--ink); padding-top: 16px; min-width: 0; }
-.pillar p { margin: 0 0 12px; }
-.topics { font: 400 .86rem/1.5 var(--f-display); color: var(--muted); letter-spacing: .02em; margin: 0; }
-@media (max-width: 820px) { .pillars { grid-template-columns: minmax(0, 1fr); } }
 
 /* News */
 .news { list-style: none; margin: 0; padding: 0; }
 .news li { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--line); }
 .news li:first-child { border-top: 1px solid var(--line); }
-.news time { font: 400 .8rem/1.7 var(--f-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
-.news h3 { font: 500 1.14rem/1.3 var(--f-display); margin: 0 0 4px; }
+.news time { font: 400 .8rem/1.7 var(--f-mono); color: var(--muted); }
+.news h3 { font: 600 1.06rem/1.35 var(--f-display); margin: 0 0 4px; }
 .news h3 a { color: var(--ink); text-decoration: none; }
-.news h3 a:hover { color: var(--sea); text-decoration: underline; }
+.news h3 a:hover { color: var(--blue); text-decoration: underline; }
 .news p { margin: 0; color: var(--muted); font-size: .98rem; }
 @media (max-width: 560px) { .news li { grid-template-columns: minmax(0, 1fr); gap: 4px; } }
 
-/* Partners */
-.partner-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; margin-bottom: 20px; }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
-.chips li { padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; font: 500 .86rem/1.25 var(--f-display); background: var(--surface); }
-@media (max-width: 720px) { .partner-groups { grid-template-columns: minmax(0, 1fr); } }
-
-/* Featured report */
-.report {
-  display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px);
-  background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: clamp(22px, 3.5vw, 40px);
-}
-.report > div, .report > ul { min-width: 0; }
-.report h2 { font-size: clamp(1.5rem, 2.8vw, 2.1rem); margin: 0 0 8px; }
-.report .sub { font: 400 1.12rem/1.4 var(--f-display); color: var(--muted); margin: 0 0 16px; }
-.report .authors { font: 400 .92rem/1.5 var(--f-display); color: var(--muted); margin: 0 0 18px; }
-.findings { list-style: none; margin: 0; padding: 0; align-self: center; }
-.findings li { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 14px; padding: 14px 0; border-top: 1px solid var(--line); }
-.findings li:last-child { border-bottom: 1px solid var(--line); }
-.findings .k { font: 500 .7rem/1.7 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
-.findings .big { display: block; font: 500 1.7rem/1.1 var(--f-display); color: var(--sea); font-variant-numeric: tabular-nums; margin-bottom: 2px; }
-@media (max-width: 860px) { .report { grid-template-columns: minmax(0, 1fr); } }
-@media (max-width: 440px) { .findings li { grid-template-columns: minmax(0, 1fr); gap: 4px; } }
-
-/* LinkedIn posts */
+/* LinkedIn */
 .posts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px; }
-.post { display: flex; flex-direction: column; gap: 12px; padding: 20px 22px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; min-width: 0; }
-.post-head { display: flex; justify-content: space-between; gap: 12px; font: 500 .72rem/1.4 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
-.post-head .src { color: var(--sea); }
+.post { display: flex; flex-direction: column; gap: 12px; padding: 20px 22px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; min-width: 0; }
+.post-head { display: flex; justify-content: space-between; gap: 12px; font: 700 .66rem/1.4 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.post-head .src { color: var(--blue); }
 .post-body { margin: 0; font-size: .98rem; }
-.post-foot { margin: auto 0 0; font: 500 .86rem/1.3 var(--f-display); }
-.post.follow { background: var(--foam); border-color: transparent; }
+.post-foot { margin: auto 0 0; font: 600 .84rem/1.3 var(--f-display); }
+.post.follow { background: var(--tint-2); border-color: transparent; }
 
-/* Logo strip (tiles stay white in both themes so official logos show as designed) */
+/* Logos */
 .logo-groups { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 20px 28px; margin-bottom: 14px; }
 .logo-groups > div { min-width: 0; }
 .logo-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
 .logo-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .logo-grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.logo-tile {
-  background: var(--logo-bg); border: 1px solid var(--line); border-radius: 8px;
-  min-height: 108px; padding: 16px; min-width: 0;
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center;
-}
+.logo-tile { background: #ffffff; border: 1px solid var(--line); border-radius: 10px; min-height: 108px; padding: 16px; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center; }
 .logo-tile img { max-height: 64px; max-width: 100%; width: auto; height: auto; object-fit: contain; }
-.logo-tile.pending { border-style: dashed; border-color: var(--todo); }
 .logo-tile img.square { max-height: 96px; border-radius: 4px; }
-.logo-name { font: 500 .95rem/1.25 var(--f-display); color: var(--logo-ink); }
-@media (max-width: 860px) { .logo-groups { grid-template-columns: minmax(0, 1fr); } }
-@media (max-width: 600px) {
-  .logo-grid.three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .logo-grid.three li:first-child { grid-column: 1 / -1; }
-}
+.logo-tile.pending { border-style: dashed; border-color: var(--todo); }
+.logo-name { font: 600 .9rem/1.3 var(--f-display); color: var(--ink); }
+.partner-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.chips li { padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; font: 500 .82rem/1.3 var(--f-display); background: var(--surface); }
+@media (max-width: 860px) { .logo-groups, .partner-groups { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 600px) { .logo-grid.three { grid-template-columns: repeat(2, minmax(0, 1fr)); } .logo-grid.three li:first-child { grid-column: 1 / -1; } }
 
-/* Inner page head */
-.page-head .wrap { padding-top: clamp(36px, 6vw, 64px); padding-bottom: clamp(8px, 2vw, 16px); }
-.page-head h1 { font-size: clamp(2rem, 4vw, 3rem); }
-.page-head p { max-width: 62ch; font-size: 1.12rem; margin: 0; }
+/* Inner pages */
+.page-head { background: var(--tint); }
+.page-head .wrap { padding-block: clamp(36px, 5vw, 60px); }
+.page-head h1 { font-size: clamp(1.9rem, 3.8vw, 2.8rem); }
+.page-head p { max-width: 62ch; font-size: 1.1rem; margin: 0; }
 
 /* Research */
-.themes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(22px, 3vw, 40px); }
-.themes ul { margin: 10px 0 0; padding-left: 1.1em; }
-.themes li { margin-bottom: 6px; }
-.themes li::marker { color: var(--sea); }
-@media (max-width: 820px) { .themes { grid-template-columns: minmax(0, 1fr); } }
+.theme-detail { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.theme-detail article { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 18px; padding: 24px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.theme-detail article > div { min-width: 0; }
+.theme-detail img { width: 64px; height: 64px; }
+.theme-detail h3 { font-size: .92rem; letter-spacing: .1em; text-transform: uppercase; color: var(--navy); margin-bottom: 4px; }
+.theme-detail .q { font-style: italic; color: var(--muted); margin: 0 0 8px; }
+.theme-detail ul { margin: 0; padding-left: 1.1em; }
+.theme-detail li { margin-bottom: 4px; }
+.theme-detail li::marker { color: var(--lime); }
+@media (max-width: 820px) { .theme-detail { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 420px) { .theme-detail article { grid-template-columns: minmax(0, 1fr); } }
 .project { display: grid; grid-template-columns: 13rem minmax(0, 1fr); gap: 28px; padding: 28px 0; border-top: 1px solid var(--line); }
 .project:last-of-type { border-bottom: 1px solid var(--line); }
-.project-meta { font: 500 .88rem/1.55 var(--f-display); color: var(--muted); display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
-.project h3 { font: 500 1.38rem/1.25 var(--f-display); margin: 0 0 8px; }
 .project > div { min-width: 0; }
-.status { display: inline-block; padding: 3px 10px; border-radius: 999px; font: 600 .68rem/1.5 var(--f-display); letter-spacing: .12em; text-transform: uppercase; }
-.status.ongoing { background: var(--foam); color: var(--sea); }
+.project-meta { font: 600 .84rem/1.55 var(--f-display); color: var(--muted); display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+.project h3 { font: 700 1.25rem/1.3 var(--f-display); margin: 0 0 8px; }
+.status { display: inline-block; padding: 3px 10px; border-radius: 999px; font: 700 .64rem/1.55 var(--f-display); letter-spacing: .12em; text-transform: uppercase; }
+.status.ongoing { background: #e3f3e8; color: var(--green); }
 .status.done { border: 1px solid var(--line); color: var(--muted); }
 .kv { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 8px 16px; margin: 16px 0 0; font-size: .97rem; }
-.kv dt { font: 500 .72rem/1.9 var(--f-display); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.kv dt { font: 700 .66rem/2 var(--f-display); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 .kv dd { margin: 0; min-width: 0; }
 @media (max-width: 720px) {
   .project { grid-template-columns: minmax(0, 1fr); gap: 10px; }
   .project-meta { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 10px; }
-  .kv { grid-template-columns: minmax(0, 1fr); gap: 2px; }
-  .kv dd { margin-bottom: 8px; }
+  .kv { grid-template-columns: minmax(0, 1fr); gap: 2px; } .kv dd { margin-bottom: 8px; }
 }
-.impact { background: var(--foam); border-radius: 10px; padding: clamp(20px, 3vw, 32px); display: grid; grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); gap: 24px; }
+.impact { background: var(--tint); border-radius: 12px; padding: clamp(20px, 3vw, 32px); display: grid; grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); gap: 24px; }
 .impact time { font: 400 .82rem var(--f-mono); color: var(--muted); }
-.impact h3 { font: 500 1.3rem/1.25 var(--f-display); }
+.impact h3 { font: 700 1.2rem/1.3 var(--f-display); }
 @media (max-width: 720px) { .impact { grid-template-columns: minmax(0, 1fr); gap: 8px; } }
 
 /* Publications */
 .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 28px; }
-.filter {
-  appearance: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink);
-  padding: 9px 14px; border-radius: 999px; font: 500 .86rem/1 var(--f-display); cursor: pointer;
-}
-.filter:hover { border-color: var(--sea); }
-.filter[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.filter { appearance: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 9px 14px; border-radius: 999px; font: 600 .82rem/1 var(--f-display); cursor: pointer; }
+.filter:hover { border-color: var(--blue); }
+.filter[aria-pressed="true"] { background: var(--navy); color: #ffffff; border-color: var(--navy); }
 .filter .n { font-variant-numeric: tabular-nums; opacity: .7; margin-left: 4px; }
 .year { display: grid; grid-template-columns: 6rem minmax(0, 1fr); gap: 20px; padding: 22px 0; border-top: 1px solid var(--line); }
-.year h2 { font: 500 1.4rem/1.2 var(--f-display); font-variant-numeric: tabular-nums; margin: 0; color: var(--muted); }
+.year h2 { font: 700 1.3rem/1.2 var(--f-display); font-variant-numeric: tabular-nums; margin: 0; color: var(--teal); }
 .pubs { list-style: none; margin: 0; padding: 0; display: grid; gap: 20px; }
 .pub { min-width: 0; }
-.pub .type { font: 600 .68rem/1.4 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--sea); margin: 0 0 4px; }
+.pub .type { font: 700 .64rem/1.4 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--green); margin: 0 0 4px; }
 .pub p { margin: 0; }
-.pub cite { font-style: italic; }
 .pub .title { font-weight: 600; }
-.pub .src { font: 400 .84rem/1.5 var(--f-display); margin-top: 4px; }
+.pub .src { font: 500 .82rem/1.5 var(--f-display); margin-top: 4px; }
 .empty { padding: 22px 0; border-top: 1px solid var(--line); color: var(--muted); }
 @media (max-width: 560px) { .year { grid-template-columns: minmax(0, 1fr); gap: 10px; } }
 
 /* Team */
+.subhead { font: 700 .74rem/1.3 var(--f-display); letter-spacing: .16em; text-transform: uppercase; color: var(--green); margin: 0 0 18px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
 .leader { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: clamp(22px, 4vw, 48px); align-items: start; }
 .leader > div { min-width: 0; }
 @media (max-width: 700px) { .leader { grid-template-columns: minmax(0, 1fr); } }
 .avatar {
-  aspect-ratio: 1; max-width: 100%; border-radius: 50%;
-  display: grid; place-items: center; position: relative; overflow: hidden;
-  background:
-    linear-gradient(180deg, transparent 64%, var(--spray) 64% 70%, transparent 70% 75%, color-mix(in srgb, var(--sea) 45%, var(--foam)) 75%),
-    var(--foam);
-  color: var(--sea); font: 500 2.6rem/1 var(--f-display); letter-spacing: .04em;
+  aspect-ratio: 1; max-width: 100%; border-radius: 50%; display: grid; place-items: center; overflow: hidden;
+  background: linear-gradient(180deg, transparent 63%, var(--lime) 63% 68%, transparent 68% 73%, var(--blue) 73%), var(--tint-2);
+  color: var(--navy); font: 700 2.4rem/1 var(--f-display); letter-spacing: .03em;
 }
 .avatar span { transform: translateY(-14%); }
 .avatar.lg { width: 200px; }
-.avatar.sm { width: 92px; font-size: 1.5rem; }
-.photo-note { margin-top: 8px; text-align: center; }
-.leader .photo-col { display: flex; flex-direction: column; align-items: flex-start; }
-.leader .photo-col .photo-note { width: 200px; }
-.person-name { font: 500 1.34rem/1.2 var(--f-display); margin: 0; }
-.leader .person-name { font-size: clamp(1.6rem, 3vw, 2rem); }
-.degrees { font-weight: 400; color: var(--muted); font-size: .9em; }
-.role { font: 500 .78rem/1.45 var(--f-display); letter-spacing: .1em; text-transform: uppercase; color: var(--sea); margin: 6px 0 12px; }
+.avatar.sm { width: 92px; font-size: 1.4rem; }
+.photo-col { display: flex; flex-direction: column; align-items: flex-start; }
+.photo-note { margin-top: 8px; width: 200px; text-align: center; }
+.person-name { font: 700 1.22rem/1.25 var(--f-display); margin: 0; }
+.leader .person-name { font-size: clamp(1.5rem, 2.8vw, 1.9rem); }
+.degrees { font-weight: 500; color: var(--muted); font-size: .85em; }
+.role { font: 700 .72rem/1.5 var(--f-display); letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin: 6px 0 12px; }
 .bio { margin: 0 0 12px; }
 .members { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-.member { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 18px; padding: 22px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; align-content: start; }
+.member { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 18px; padding: 22px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; align-content: start; }
 .member > div { min-width: 0; }
 .member .bio { font-size: .97rem; }
 .member.add { background: var(--todo-bg); border: 1px dashed var(--todo); display: block; }
 @media (max-width: 760px) { .members { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 420px) { .member { grid-template-columns: minmax(0, 1fr); } }
 .plinks { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
-.plinks a, .plinks span {
-  display: inline-block; padding: 5px 11px; border: 1px solid var(--line); border-radius: 999px;
-  font: 500 .78rem/1.2 var(--f-display); letter-spacing: .03em; text-decoration: none; color: var(--ink);
-}
-.plinks a:hover { border-color: var(--sea); color: var(--sea); }
+.plinks a, .plinks span { display: inline-block; padding: 5px 11px; border: 1px solid var(--line); border-radius: 999px; font: 600 .74rem/1.2 var(--f-display); text-decoration: none; color: var(--ink); }
+.plinks a:hover { border-color: var(--blue); color: var(--blue); }
 .plinks span { border-style: dashed; border-color: var(--todo); color: var(--todo); }
-.subhead { font: 500 .8rem/1.3 var(--f-display); letter-spacing: .16em; text-transform: uppercase; color: var(--sea); margin: 0 0 18px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
 
 /* Contact */
 .contact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(24px, 4vw, 56px); }
 .contact-grid > div { min-width: 0; }
-.addr { font-style: normal; font-size: 1.08rem; line-height: 1.6; margin-bottom: 10px; }
+.addr { font-style: normal; font-size: 1.06rem; line-height: 1.6; margin-bottom: 10px; }
 .coords { font: 400 .8rem/1.5 var(--f-mono); color: var(--muted); }
 .contact-list { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 14px; }
 .contact-list li { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 12px; align-items: baseline; padding-top: 14px; border-top: 1px solid var(--line); }
-.contact-list .k { font: 500 .72rem/1.5 var(--f-display); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.contact-list .k { font: 700 .66rem/1.5 var(--f-display); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 @media (max-width: 720px) { .contact-grid { grid-template-columns: minmax(0, 1fr); } }
 
-/* Footer */
-.site-footer { background: var(--band); color: var(--band-fg); }
+/* Footer (light) */
+.site-footer { background: var(--tint-2); color: var(--ink); }
+.site-footer::before { content: ""; display: block; height: 3px; background: var(--brand); }
 .site-footer .wrap { padding-block: 40px 28px; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 28px 40px; }
 .f-brand { display: flex; align-items: center; gap: 14px; }
 .f-brand img { height: 64px; width: auto; }
-.f-brand .wordmark { font-size: 1.05rem; color: var(--band-fg); }
-.f-brand .wordmark .w2 { color: var(--band-accent); }
-.f-tag { font: 500 .74rem/1.4 var(--f-display); letter-spacing: .16em; text-transform: uppercase; color: var(--band-accent); margin: 16px 0 0; }
+.f-themes { font: 700 .66rem/1.6 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--teal); margin: 16px 0 0; }
 .f-nav { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, max-content)); gap: 10px 32px; align-content: start; }
-.f-nav a { color: var(--band-fg); text-decoration: none; font: 500 .84rem/1.3 var(--f-display); letter-spacing: .12em; text-transform: uppercase; }
-.f-nav a:hover { color: var(--band-accent); }
-.f-small { grid-column: 1 / -1; border-top: 1px solid var(--band-line); padding-top: 16px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; font: 400 .82rem/1.4 var(--f-display); color: var(--band-muted); }
+.f-nav a { color: var(--navy); text-decoration: none; font: 700 .78rem/1.3 var(--f-display); letter-spacing: .1em; text-transform: uppercase; }
+.f-nav a:hover { color: var(--green); }
+.f-small { grid-column: 1 / -1; border-top: 1px solid #cfe0dc; padding-top: 16px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; font: 500 .78rem/1.4 var(--f-display); color: var(--muted); }
 @media (max-width: 720px) { .site-footer .wrap { grid-template-columns: minmax(0, 1fr); } }
 
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
 </head>
 <body>
@@ -415,10 +351,9 @@ h3 { font: 600 1.18rem/1.25 var(--f-display); margin: 0 0 8px; }
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="#home" aria-label="Green Shipping Research Group, home">
-      <img class="mark-light" src="assets/gsrg-mark.png" alt="" width="168" height="144">
-      <img class="mark-dark" src="assets/gsrg-mark-reversed.png" alt="" width="168" height="144">
-      <span class="wordmark"><span>Green Shipping</span><span class="w2">Research Group</span></span>
+    <a class="brand" href="#home" aria-label="GREENSHIP Maritime Energy Transition Research Group, home">
+      <img src="assets/brand/greenship-emblem.png" alt="" width="257" height="200">
+      <span class="wordmark"><span class="name">GREENSHIP</span><span class="sub">Maritime Energy Transition Research Group</span></span>
     </a>
     <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">
       <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg>Menu
@@ -441,21 +376,95 @@ h3 { font: 600 1.18rem/1.25 var(--f-display); margin: 0 0 8px; }
 <div data-page="home" id="page-home">
   <section class="hero">
     <div class="wrap">
+      <figure class="hero-logo">
+        <img src="assets/brand/greenship-logo.png" alt="GREENSHIP, Maritime Energy Transition Research Group, Maynooth University" width="960" height="786">
+      </figure>
       <div>
         <p class="eyebrow">Maynooth University · School of Business</p>
-        <h1>Research for the green transition of the maritime industry</h1>
-        <p class="lede">We study how ships and ports can cut their emissions: which fuels and technologies make sense, how to plan the transition, and how to meet new environmental rules. We work with ports, ferry operators and public agencies around the Irish Sea.</p>
+        <h1>Research for the maritime energy transition</h1>
+        <p class="lede">We study how ships and ports can cut their emissions: which fuels make sense, where green shipping corridors can start, how to bring shore power to Irish ports, and how to plan the sector's path to carbon neutrality by 2050. We work with ports, ferry operators and public agencies around the Irish Sea.</p>
         <div class="actions">
           <a class="btn primary" href="#research">Our research</a>
           <a class="btn" href="#team">Meet the team</a>
         </div>
       </div>
+    </div>
+  </section>
 
+  <section class="section tint">
+    <div class="wrap">
+      <p class="eyebrow">Research themes</p>
+      <div class="themes">
+        <article class="theme">
+          <img src="assets/brand/icon-alternative-fuels.png" alt="" width="128" height="128">
+          <div>
+            <h3>Alternative fuels</h3>
+            <p>We compare the cost, emissions and readiness of biofuels, methanol, ammonia, hydrogen and electrofuels for Irish shipping.</p>
+          </div>
+        </article>
+        <article class="theme">
+          <img src="assets/brand/icon-green-corridors.png" alt="" width="128" height="128">
+          <div>
+            <h3>Green shipping corridors</h3>
+            <p>We assess routes where zero-emission shipping can start first, such as Dublin–Holyhead, and build frameworks for pre-feasibility studies.</p>
+          </div>
+        </article>
+        <article class="theme">
+          <img src="assets/brand/icon-onshore-power.png" alt="" width="128" height="128">
+          <div>
+            <h3>Onshore power supply</h3>
+            <p>We study the costs and benefits of connecting ships at berth to shore power in Irish ports.</p>
+          </div>
+        </article>
+        <article class="theme">
+          <img src="assets/brand/icon-decarbonisation.png" alt="" width="128" height="128">
+          <div>
+            <h3>Decarbonisation</h3>
+            <p>We build roadmaps and policy analysis to bring Ireland's maritime sector to carbon neutrality by 2050.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <article class="report">
+        <div>
+          <p class="eyebrow">Report · Marine Institute · 2025</p>
+          <h2>Transitioning Ireland's maritime sector to carbon neutrality</h2>
+          <p class="sub">Alternative fuels, infrastructure, and policy pathways</p>
+          <p class="authors">Patrick Rigot-Müller, Alina Kovalenko, Kamalakkannan Sivappirakasam and Joseph Coughlan. Marine Institute Research for Policy Awards 2023.</p>
+          <p>The report sets out how Ireland's maritime industry can reach carbon neutrality by 2050. It assesses alternative fuels, the port infrastructure they need, and the rules that drive the transition, and it proposes a phased roadmap.</p>
+          <div class="actions"><a class="btn primary" href="https://oar.marine.ie/entities/publication/5ebcd6e0-4f44-42e5-82ae-8da0161cc68d">Read the report</a></div>
+        </div>
+        <ul class="findings">
+          <li><span class="k">Cost of inaction</span><span><span class="big">€1.3 bn+</span>in penalties a year by 2050 under business as usual</span></li>
+          <li><span class="k">Fuels assessed</span><span>Biofuels, methanol, ammonia, hydrogen and electrofuels</span></li>
+          <li><span class="k">Policy drivers</span><span>EU Green Deal, FuelEU Maritime and the IMO Net-Zero Framework</span></li>
+          <li><span class="k">Roadmap</span><span>Onshore power supply by 2030, preparing for FuelEU revisions in 2027–28, and green shipping corridors on high-emission routes in the longer term</span></li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section tint">
+    <div class="wrap project-feature">
+      <div>
+        <p class="eyebrow">Featured project</p>
+        <h2>Greening the Irish Sea: The Central Corridor</h2>
+        <p class="prose">A feasibility study for a green shipping corridor on the Dublin–Holyhead route, the busiest roll-on/roll-off route between Ireland and the UK. Maynooth University was the academic partner, with Irish Ferries, Stena Line, Ricardo, Dublin Port Company, Holyhead Port Authority and EDF R&amp;D.</p>
+        <dl class="facts">
+          <div><dt>Most practical fuel</dt><dd>Methanol</dd></div>
+          <div><dt>GHG reduction</dt><dd>Up to 80%</dd></div>
+          <div><dt>Traffic, 2024</dt><dd>≈1.6 m passengers, 6,000+ sailings</dd></div>
+        </dl>
+        <p class="note" style="margin:0">Source: <a href="https://www.maynoothuniversity.ie/node/560650">Maynooth University news, Sept 2025</a></p>
+      </div>
       <figure class="chart">
-        <div class="chart-head"><span>Green shipping corridor study</span><span>Irish Sea</span></div>
+        <div class="chart-head"><span>Central Corridor</span><span>Irish Sea</span></div>
         <svg viewBox="0 0 560 272" role="img" aria-labelledby="chart-title">
           <title id="chart-title">Chart of the Irish Sea showing the proposed Central Corridor ferry route between Dublin Port and Holyhead</title>
-          <!-- graticule: equirectangular, lon scaled by cos(53.3°) -->
           <g>
             <line class="g-line" x1="24.4" y1="0" x2="24.4" y2="246"/>
             <line class="g-line" x1="146" y1="0" x2="146" y2="246"/>
@@ -492,65 +501,11 @@ h3 { font: 600 1.18rem/1.25 var(--f-display); margin: 0 0 8px; }
           <text class="port-name" x="486" y="166" text-anchor="end">Holyhead</text>
           <text class="port-xy" x="486" y="180" text-anchor="end">53.31°N 4.63°W</text>
         </svg>
-        <figcaption>
-          <h3>Greening the Irish Sea: The Central Corridor</h3>
-          <p class="note">Feasibility study, 2024–25. Maynooth University was the academic partner.</p>
-          <dl class="facts">
-            <div><dt>Most practical fuel</dt><dd>Methanol</dd></div>
-            <div><dt>GHG reduction</dt><dd>Up to 80%</dd></div>
-            <div><dt>Route traffic, 2024</dt><dd>≈1.6 m passengers, 6,000+ sailings</dd></div>
-          </dl>
-          <p class="note" style="margin:0">Source: <a href="https://www.maynoothuniversity.ie/node/560650">Maynooth University news, Sept 2025</a></p>
-        </figcaption>
       </figure>
     </div>
   </section>
 
-  <section class="section rule">
-    <div class="wrap">
-      <p class="tagline">Technology ◦ Roadmaps ◦ Compliance</p>
-      <div class="pillars">
-        <article class="pillar">
-          <h3>Technology</h3>
-          <p>We assess the costs and benefits of alternative marine fuels, onshore power supply and other low-carbon options for real routes and ports.</p>
-          <p class="topics">Alternative fuels · Shore-side electricity · Cost–benefit analysis</p>
-        </article>
-        <article class="pillar">
-          <h3>Roadmaps</h3>
-          <p>We build decarbonisation pathways for the Irish maritime sector towards carbon neutrality by 2050, including green shipping corridors across the Irish Sea.</p>
-          <p class="topics">Decarbonisation pathways · Green corridors · Stakeholder research</p>
-        </article>
-        <article class="pillar">
-          <h3>Compliance</h3>
-          <p>We study how environmental policy and regulation affect ports and operators, and what they need to do to comply. Our work informs Ireland's National Ports Policy.</p>
-          <p class="topics">Policy review · Regulatory impact · Socio-economic effects</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section rule">
-    <div class="wrap">
-      <article class="report">
-        <div>
-          <p class="eyebrow">Report · Marine Institute · 2025</p>
-          <h2>Transitioning Ireland's maritime sector to carbon neutrality</h2>
-          <p class="sub">Alternative fuels, infrastructure, and policy pathways</p>
-          <p class="authors">Patrick Rigot-Müller, Alina Kovalenko, Kamalakkannan Sivappirakasam and Joseph Coughlan. Marine Institute Research for Policy Awards 2023.</p>
-          <p>The report sets out how Ireland's maritime industry can reach carbon neutrality by 2050. It assesses alternative fuels, the port infrastructure they need, and the rules that drive the transition, and it proposes a phased roadmap.</p>
-          <div class="actions"><a class="btn primary" href="https://oar.marine.ie/entities/publication/5ebcd6e0-4f44-42e5-82ae-8da0161cc68d">Read the report</a></div>
-        </div>
-        <ul class="findings">
-          <li><span class="k">Cost of inaction</span><span><span class="big">€1.3 bn+</span>in penalties a year by 2050 under business as usual</span></li>
-          <li><span class="k">Fuels assessed</span><span>Biofuels, methanol, ammonia, hydrogen and electrofuels</span></li>
-          <li><span class="k">Policy drivers</span><span>EU Green Deal, FuelEU Maritime and the IMO Net-Zero Framework</span></li>
-          <li><span class="k">Roadmap</span><span>Onshore power supply by 2030, preparing for FuelEU revisions in 2027–28, and green shipping corridors on high-emission routes in the longer term</span></li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section class="section rule">
+  <section class="section">
     <div class="wrap">
       <div class="section-head"><h2>Latest news</h2></div>
       <ul class="news">
@@ -579,7 +534,7 @@ h3 { font: 600 1.18rem/1.25 var(--f-display); margin: 0 0 8px; }
     </div>
   </section>
 
-  <section class="section rule">
+  <section class="section tint">
     <div class="wrap">
       <div class="section-head"><h2>On LinkedIn</h2></div>
       <div class="posts">
@@ -597,7 +552,7 @@ h3 { font: 600 1.18rem/1.25 var(--f-display); margin: 0 0 8px; }
     </div>
   </section>
 
-  <section class="section rule">
+  <section class="section">
     <div class="wrap">
       <h2>Funders and partners</h2>
       <div class="logo-groups">
@@ -648,46 +603,66 @@ h3 { font: 600 1.18rem/1.25 var(--f-display); margin: 0 0 8px; }
     <div class="wrap">
       <p class="eyebrow">Research</p>
       <h1>What we work on</h1>
-      <p>Our research supports the maritime industry's move to zero emissions. We combine cost modelling, stakeholder research and policy analysis, and we work closely with ports, operators and public agencies.</p>
+      <p>Our research supports the maritime industry's move to zero emissions. We combine cost modelling, life cycle assessment, stakeholder research and policy analysis, and we work closely with ports, operators and public agencies.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="wrap">
-      <p class="tagline">Technology ◦ Roadmaps ◦ Compliance</p>
-      <div class="themes">
-        <div class="pillar">
-          <h3>Technology</h3>
-          <p>Which low-carbon options work, and what do they cost?</p>
-          <ul>
-            <li>Alternative marine fuels, including methanol</li>
-            <li>Onshore power supply (shore-side electricity) in ports</li>
-            <li>Cost and cost–benefit assessment</li>
-          </ul>
-        </div>
-        <div class="pillar">
-          <h3>Roadmaps</h3>
-          <p>How can the sector get to carbon neutrality by 2050?</p>
-          <ul>
-            <li>Decarbonisation pathways for the Irish maritime sector</li>
-            <li>Green shipping corridors across the Irish Sea</li>
-            <li>Ports and maritime logistics</li>
-          </ul>
-        </div>
-        <div class="pillar">
-          <h3>Compliance</h3>
-          <p>What do new rules mean for ports and operators?</p>
-          <ul>
-            <li>Policy and regulatory review</li>
-            <li>Socio-economic impact of environmental policy</li>
-            <li>Input to national ports policy</li>
-          </ul>
-        </div>
+      <div class="theme-detail">
+        <article>
+          <img src="assets/brand/icon-alternative-fuels.png" alt="" width="128" height="128">
+          <div>
+            <h3>Alternative fuels</h3>
+            <p class="q">Which fuels make sense, and at what cost?</p>
+            <ul>
+              <li>Cost assessment of alternative marine fuels for Ireland</li>
+              <li>Life cycle assessment of marine fuel pathways</li>
+              <li>Biofuels, methanol, ammonia, hydrogen and electrofuels</li>
+            </ul>
+          </div>
+        </article>
+        <article>
+          <img src="assets/brand/icon-green-corridors.png" alt="" width="128" height="128">
+          <div>
+            <h3>Green shipping corridors</h3>
+            <p class="q">Where can zero-emission shipping start first?</p>
+            <ul>
+              <li>Dublin–Holyhead Central Corridor feasibility study</li>
+              <li>A pre-feasibility framework for corridors in Northern Europe</li>
+              <li>Stakeholder research with ports and operators</li>
+            </ul>
+          </div>
+        </article>
+        <article>
+          <img src="assets/brand/icon-onshore-power.png" alt="" width="128" height="128">
+          <div>
+            <h3>Onshore power supply</h3>
+            <p class="q">What does it take to plug ships in at berth?</p>
+            <ul>
+              <li>Cost–benefit assessment of shore-side electricity in Ireland</li>
+              <li>Port electrification, funded by SEAI</li>
+              <li>Onshore power by 2030 in the national roadmap</li>
+            </ul>
+          </div>
+        </article>
+        <article>
+          <img src="assets/brand/icon-decarbonisation.png" alt="" width="128" height="128">
+          <div>
+            <h3>Decarbonisation</h3>
+            <p class="q">How does the sector reach carbon neutrality by 2050?</p>
+            <ul>
+              <li>Decarbonisation roadmap for the Irish maritime sector</li>
+              <li>Economic impact of EU emission rules on Irish shipping</li>
+              <li>Input to Ireland's National Ports Policy</li>
+            </ul>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="section rule">
+  <section class="section tint">
     <div class="wrap">
       <h2>Projects</h2>
       <p class="note" style="margin-bottom:18px"><span class="todo">Confirm</span> Project periods, funders and links. Add any projects that are missing.</p>
@@ -754,7 +729,7 @@ h3 { font: 600 1.18rem/1.25 var(--f-display); margin: 0 0 8px; }
     <div class="wrap">
       <p class="eyebrow">Publications</p>
       <h1>Publications</h1>
-      <p>Peer-reviewed articles, theses and reports from the group, newest first.</p>
+      <p>Peer-reviewed articles, reports, conference papers and theses from the group, newest first.</p>
     </div>
   </section>
 
@@ -864,7 +839,7 @@ h3 { font: 600 1.18rem/1.25 var(--f-display); margin: 0 0 8px; }
     <div class="wrap">
       <p class="eyebrow">Team</p>
       <h1>Our team</h1>
-      <p>Researchers at the Maynooth University School of Business working on the green transition of shipping and ports.</p>
+      <p>Researchers at the Maynooth University School of Business working on the maritime energy transition.</p>
     </div>
   </section>
 
@@ -894,7 +869,7 @@ h3 { font: 600 1.18rem/1.25 var(--f-display); margin: 0 0 8px; }
     </div>
   </section>
 
-  <section class="section rule">
+  <section class="section tint">
     <div class="wrap">
       <p class="subhead">Current members</p>
       <div class="members">
@@ -950,7 +925,7 @@ h3 { font: 600 1.18rem/1.25 var(--f-display); margin: 0 0 8px; }
     </div>
   </section>
 
-  <section class="section rule">
+  <section class="section">
     <div class="wrap">
       <p class="subhead">Past members</p>
       <div class="todo-block">
@@ -975,7 +950,7 @@ h3 { font: 600 1.18rem/1.25 var(--f-display); margin: 0 0 8px; }
       <div>
         <p class="label">Address</p>
         <address class="addr">
-          Green Shipping Research Group<br>
+          GREENSHIP: Maritime Energy Transition Research Group<br>
           School of Business<br>
           TSI Building, North Campus<br>
           Maynooth University<br>
@@ -1005,10 +980,10 @@ h3 { font: 600 1.18rem/1.25 var(--f-display); margin: 0 0 8px; }
   <div class="wrap">
     <div>
       <div class="f-brand">
-        <img src="assets/gsrg-mark-reversed.png" alt="" width="168" height="144">
-        <span class="wordmark"><span>Green Shipping</span><span class="w2">Research Group</span></span>
+        <img src="assets/brand/greenship-emblem.png" alt="" width="257" height="200">
+        <span class="wordmark"><span class="name">GREENSHIP</span><span class="sub">Maritime Energy Transition Research Group</span></span>
       </div>
-      <p class="f-tag">Technology ◦ Roadmaps ◦ Compliance</p>
+      <p class="f-themes">Alternative fuels · Green shipping corridors · Onshore power supply · Decarbonisation</p>
     </div>
     <ul class="f-nav">
       <li><a href="#home">Home</a></li>
@@ -1018,7 +993,7 @@ h3 { font: 600 1.18rem/1.25 var(--f-display); margin: 0 0 8px; }
       <li><a href="#publications">Publications</a></li>
     </ul>
     <div class="f-small">
-      <span>© 2026 Green Shipping Research Group · School of Business, Maynooth University</span>
+      <span>© 2026 GREENSHIP · School of Business, Maynooth University</span>
       <span>Maynooth, Co. Kildare, Ireland</span>
     </div>
   </div>
@@ -1052,7 +1027,6 @@ h3 { font: 600 1.18rem/1.25 var(--f-display); margin: 0 0 8px; }
   window.addEventListener('hashchange', function () { route(true); });
   route(false);
 
-  // Publication filters
   var filters = Array.prototype.slice.call(document.querySelectorAll('.filter'));
   var pubs = Array.prototype.slice.call(document.querySelectorAll('.pub'));
   var years = Array.prototype.slice.call(document.querySelectorAll('.year'));
@@ -1073,11 +1047,10 @@ h3 { font: 600 1.18rem/1.25 var(--f-display); margin: 0 0 8px; }
     });
   });
 
-  // Respect reduced motion: stop the ferry on the chart
   try {
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       var anim = document.getElementById('ship-anim');
-      if (anim) { var ship = anim.parentNode; anim.remove(); ship.setAttribute("cx", "289.4"); ship.setAttribute("cy", "111.6"); }
+      if (anim) { var ship = anim.parentNode; anim.remove(); ship.setAttribute('cx', '289.4'); ship.setAttribute('cy', '111.6'); }
     }
   } catch (e) {}
 })();

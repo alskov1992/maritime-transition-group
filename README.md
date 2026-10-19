@@ -1,22 +1,22 @@
-# Green Shipping Research Group – website
+# GREENSHIP – Maritime Energy Transition Research Group
 
-Static website (HTML + CSS + a little JavaScript, no build step).
+Website of the GREENSHIP research group, School of Business, Maynooth University.
+Static site (HTML + CSS + a little JavaScript, no build step).
 
 ## Structure
 
 - `index.html` – the whole site. Pages are sections switched by the URL hash: `#home`, `#research`, `#publications`, `#team`, `#contact`.
-- `assets/gsrg-mark.png` – logo mark (light backgrounds), also used as the favicon.
-- `assets/gsrg-mark-reversed.png` – logo mark for dark backgrounds (footer, dark mode).
+- `assets/brand/` – GREENSHIP logo, emblem, favicon and the four theme icons.
 - `assets/logos/` – partner and funder logos.
+- `v1/` – the first (blue) version of the site, kept for reference.
 
 ## Publish with GitHub Pages
 
-1. Upload these files to the root of a GitHub repository (branch `main`).
-2. Repository **Settings → Pages → Build and deployment**: Source = *Deploy from a branch*, Branch = `main`, folder = `/ (root)`. Save.
-3. After a minute or two the site is live at `https://<user-or-org>.github.io/<repository>/`.
+Repository **Settings → Pages → Build and deployment**: Source = *Deploy from a branch*, Branch = `main`, folder = `/ (root)`. Save.
+The site is then live at `https://<user-or-org>.github.io/<repository>/`.
 
 ## Editing
 
 - Text: edit `index.html` directly (each page is a `<div data-page="...">` block).
 - Placeholders still to fill are marked with `class="todo"`.
-- Remove the yellow "Draft for review" bar (`<div class="draftbar">`) before going public.
+- Remove the "Draft for review" bar (`<div class="draftbar">`) before going public.
