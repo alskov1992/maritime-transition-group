@@ -1,0 +1,1062 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" type="image/png" href="assets/brand/favicon.png">
+<style>
+/* Base reset */
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+</style>
+<title>GREENSHIP Research Group</title>
+<meta name="description" content="GREENSHIP, the Maritime Energy Transition Research Group at Maynooth University School of Business: alternative fuels, green shipping corridors, onshore power supply and decarbonisation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+/* Layout: "bright quay". A white page in the logo's colours: navy-to-green brand rule under the header,
+   alternating pale sea-green bands, the logo's four icons as the group's research themes.
+   Single light theme by design (the client asked for a light version). */
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --tint: #f1f7f5;
+  --tint-2: #e6f1ee;
+  --surface: #ffffff;
+  --ink: #0c2b4b;
+  --navy: #133f79;
+  --blue: #1665ad;
+  --teal: #0d8590;
+  --green: #22834a;
+  --lime: #7bbf45;
+  --line: #d8e5e2;
+  --muted: #4c6272;
+  --todo: #96560f;
+  --todo-bg: #fff6e8;
+  --brand: linear-gradient(90deg, #133f79 0%, #1665ad 36%, #12928c 66%, #74bd42 100%);
+  --f-display: "Montserrat", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --radius: 8px;
+  --wrap: 1180px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.62 var(--f-body); -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+a { color: var(--blue); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { color: var(--navy); text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 2px; }
+p { margin: 0 0 1em; }
+.wrap {
+  max-width: var(--wrap); margin-inline: auto;
+  padding-left: max(clamp(16px, 4vw, 40px), env(safe-area-inset-left, 0px));
+  padding-right: max(clamp(16px, 4vw, 40px), env(safe-area-inset-right, 0px));
+}
+.skip { position: absolute; left: -999px; top: 8px; z-index: 50; background: var(--navy); color: #fff; padding: 8px 12px; border-radius: var(--radius); }
+.skip:focus { left: 16px; }
+
+/* Draft notice + placeholders */
+.draftbar { background: var(--todo-bg); color: var(--todo); border-bottom: 1px solid var(--line); }
+.draftbar .wrap { padding-block: 8px; font: 500 .8rem/1.4 var(--f-display); }
+.todo {
+  display: inline-block; padding: 0 7px; border: 1px dashed var(--todo); border-radius: 4px;
+  color: var(--todo); background: var(--todo-bg);
+  font: 700 .64rem/1.65 var(--f-display); letter-spacing: .1em; text-transform: uppercase; vertical-align: .14em; white-space: nowrap;
+}
+.todo-block { border: 1px dashed var(--todo); background: var(--todo-bg); border-radius: 10px; padding: 16px 20px; font-size: .98rem; }
+.todo-block p:last-child { margin: 0; }
+.todo-block .todo { margin-right: 6px; }
+.note { font: 500 .8rem/1.5 var(--f-display); color: var(--muted); }
+
+/* Header */
+.site-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--bg); }
+.site-header::after { content: ""; display: block; height: 3px; background: var(--brand); }
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 10px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); min-width: 0; }
+.brand img { height: 52px; width: auto; }
+.wordmark { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.wordmark .name {
+  font: 800 1.45rem/1 var(--f-display); letter-spacing: .01em;
+  background: var(--brand); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.wordmark .sub { font: 600 .6rem/1.25 var(--f-display); letter-spacing: .16em; text-transform: uppercase; color: var(--navy); }
+.nav ul { display: flex; gap: 2px; list-style: none; margin: 0; padding: 0; }
+.nav a {
+  display: block; padding: 10px 12px; font: 600 .8rem/1 var(--f-display); letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ink); text-decoration: none; border-bottom: 2px solid transparent;
+}
+.nav a:hover { color: var(--blue); }
+.nav a[aria-current="page"] { color: var(--blue); border-bottom-color: var(--lime); }
+.menu-btn {
+  display: none; align-items: center; gap: 8px; padding: 9px 12px; border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--surface); color: var(--ink); font: 600 .78rem/1 var(--f-display); letter-spacing: .1em; text-transform: uppercase; cursor: pointer;
+}
+.menu-btn svg { width: 16px; height: 16px; }
+.menu-btn path { stroke: currentColor; stroke-width: 1.8; fill: none; stroke-linecap: round; }
+@media (max-width: 900px) {
+  .menu-btn { display: inline-flex; }
+  .nav { position: absolute; left: 0; right: 0; top: 100%; background: var(--bg); border-bottom: 1px solid var(--line); display: none; box-shadow: 0 8px 20px rgba(12, 43, 75, .08); }
+  .nav.open { display: block; }
+  .nav ul { flex-direction: column; padding-block: 6px 14px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .nav a { padding: 14px 4px; border-bottom: 1px solid var(--line); }
+  .nav a[aria-current="page"] { border-bottom-color: var(--lime); }
+}
+@media (max-width: 420px) { .brand img { height: 44px; } .wordmark .name { font-size: 1.2rem; } .wordmark .sub { font-size: .52rem; letter-spacing: .12em; } }
+
+/* Type */
+h1, h2, h3 { text-wrap: balance; }
+.eyebrow { font: 700 .74rem/1.3 var(--f-display); letter-spacing: .16em; text-transform: uppercase; color: var(--green); margin: 0 0 14px; }
+h1 { font: 700 clamp(2.05rem, 4.2vw, 3.2rem)/1.1 var(--f-display); letter-spacing: -.015em; color: var(--ink); margin: 0 0 20px; }
+h2 { font: 700 clamp(1.45rem, 2.5vw, 1.95rem)/1.2 var(--f-display); letter-spacing: -.01em; margin: 0 0 20px; }
+h3 { font: 700 1.08rem/1.3 var(--f-display); margin: 0 0 8px; }
+.lede { font-size: 1.16rem; line-height: 1.6; max-width: 58ch; margin: 0 0 28px; }
+.prose { max-width: 66ch; }
+.label { font: 700 .7rem/1.4 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+
+/* Buttons */
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 13px 20px; border: 1.5px solid var(--navy); border-radius: 999px;
+  font: 700 .78rem/1 var(--f-display); letter-spacing: .1em; text-transform: uppercase; color: var(--navy); text-decoration: none; background: transparent;
+}
+.btn:hover { background: var(--tint); color: var(--navy); text-decoration: none; }
+.btn.primary { background: var(--navy); color: #ffffff; }
+.btn.primary:hover { background: var(--blue); border-color: var(--blue); color: #ffffff; }
+
+/* Sections */
+.section { padding-block: clamp(48px, 6vw, 80px); }
+.tint { background: var(--tint); }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
+
+/* Hero */
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: center; padding-block: clamp(36px, 5vw, 72px); }
+@media (max-width: 920px) { .hero .wrap { grid-template-columns: minmax(0, 1fr); } }
+
+/* Themes (logo icons) */
+.themes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(16px, 2.4vw, 28px); }
+.theme { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px 22px; min-width: 0; display: flex; flex-direction: column; }
+.theme img { width: 64px; height: 64px; margin-bottom: 14px; }
+.theme h3 { font-size: .9rem; letter-spacing: .1em; text-transform: uppercase; color: var(--navy); }
+.theme p { margin: 0; font-size: .98rem; }
+@media (max-width: 1000px) { .themes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .themes { grid-template-columns: minmax(0, 1fr); } .theme { flex-direction: row; gap: 16px; align-items: flex-start; } .theme img { width: 52px; height: 52px; flex: none; margin: 0; } }
+
+/* Featured report */
+.report { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); }
+.report > div, .report > ul { min-width: 0; }
+.report h2 { font-size: clamp(1.5rem, 2.8vw, 2.05rem); margin: 0 0 8px; }
+.report .sub { font: 500 1.05rem/1.4 var(--f-display); color: var(--muted); margin: 0 0 16px; }
+.report .authors { font: 500 .88rem/1.55 var(--f-display); color: var(--muted); margin: 0 0 18px; }
+.findings { list-style: none; margin: 0; padding: 0; align-self: center; }
+.findings li { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 14px; padding: 14px 0; border-top: 1px solid var(--line); }
+.findings li:last-child { border-bottom: 1px solid var(--line); }
+.findings .k { font: 700 .66rem/1.8 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.findings .big { display: block; font: 700 1.7rem/1.1 var(--f-display); color: var(--green); font-variant-numeric: tabular-nums; margin-bottom: 2px; }
+@media (max-width: 860px) { .report { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 440px) { .findings li { grid-template-columns: minmax(0, 1fr); gap: 4px; } }
+
+/* Featured project + chart */
+.project-feature { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
+.project-feature > div { min-width: 0; }
+@media (max-width: 900px) { .project-feature { grid-template-columns: minmax(0, 1fr); } }
+.chart { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; min-width: 0; }
+.chart-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 12px 18px; border-bottom: 1px solid var(--line); font: 700 .66rem/1.3 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.chart svg { display: block; width: 100%; height: auto; background: #f4f9fb; }
+.g-line { stroke: #d6e4e8; stroke-width: 1; }
+.g-lab { fill: var(--muted); font: 400 10px var(--f-mono); }
+.area { fill: var(--muted); font: 600 10px var(--f-display); letter-spacing: .28em; }
+.sea-name { fill: var(--muted); font: italic 400 13px var(--f-body); letter-spacing: .06em; }
+.route { stroke: var(--blue); stroke-width: 2.5; fill: none; stroke-dasharray: 7 6; stroke-linecap: round; }
+.route-lab { fill: var(--green); font: 700 10.5px var(--f-display); letter-spacing: .14em; }
+.port { fill: #ffffff; stroke: var(--blue); stroke-width: 2.5; }
+.port-name { fill: var(--ink); font: 700 12.5px var(--f-display); }
+.port-xy { fill: var(--muted); font: 400 10px var(--f-mono); }
+.ship { fill: var(--navy); }
+.chart figcaption { padding: 16px 18px 18px; }
+.chart figcaption h3 { font-size: 1rem; margin: 0 0 4px; }
+@media (max-width: 560px) {
+  .g-lab { font-size: 13px; } .area { font-size: 13px; } .sea-name { font-size: 17px; } .route-lab { font-size: 14px; } .port-name { font-size: 19px; } .port-xy { display: none; }
+}
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 18px 0 14px; }
+.facts div { min-width: 0; border-top: 2px solid var(--lime); padding-top: 10px; }
+.facts dt { font: 700 .64rem/1.3 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.facts dd { margin: 4px 0 0; font: 700 1rem/1.25 var(--f-display); color: var(--navy); font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .facts { grid-template-columns: minmax(0, 1fr); } }
+
+/* News */
+.news { list-style: none; margin: 0; padding: 0; }
+.news li { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.news li:first-child { border-top: 1px solid var(--line); }
+.news time { font: 400 .8rem/1.7 var(--f-mono); color: var(--muted); }
+.news h3 { font: 600 1.06rem/1.35 var(--f-display); margin: 0 0 4px; }
+.news h3 a { color: var(--ink); text-decoration: none; }
+.news h3 a:hover { color: var(--blue); text-decoration: underline; }
+.news p { margin: 0; color: var(--muted); font-size: .98rem; }
+@media (max-width: 560px) { .news li { grid-template-columns: minmax(0, 1fr); gap: 4px; } }
+
+/* LinkedIn */
+.posts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px; }
+.post { display: flex; flex-direction: column; gap: 12px; padding: 20px 22px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; min-width: 0; }
+.post-head { display: flex; justify-content: space-between; gap: 12px; font: 700 .66rem/1.4 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.post-head .src { color: var(--blue); }
+.post-body { margin: 0; font-size: .98rem; }
+.post-foot { margin: auto 0 0; font: 600 .84rem/1.3 var(--f-display); }
+.post.follow { background: var(--tint-2); border-color: transparent; }
+
+/* Logos */
+.logo-groups { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 20px 28px; margin-bottom: 14px; }
+.logo-groups > div { min-width: 0; }
+.logo-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.logo-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.logo-grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.logo-tile { background: #ffffff; border: 1px solid var(--line); border-radius: 10px; min-height: 108px; padding: 16px; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center; }
+.logo-tile img { max-height: 64px; max-width: 100%; width: auto; height: auto; object-fit: contain; }
+.logo-tile img.square { max-height: 96px; border-radius: 4px; }
+.logo-tile.pending { border-style: dashed; border-color: var(--todo); }
+.logo-name { font: 600 .9rem/1.3 var(--f-display); color: var(--ink); }
+.partner-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.chips li { padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; font: 500 .82rem/1.3 var(--f-display); background: var(--surface); }
+@media (max-width: 860px) { .logo-groups, .partner-groups { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 600px) { .logo-grid.three { grid-template-columns: repeat(2, minmax(0, 1fr)); } .logo-grid.three li:first-child { grid-column: 1 / -1; } }
+
+/* Inner pages */
+.page-head { background: var(--tint); }
+.page-head .wrap { padding-block: clamp(36px, 5vw, 60px); }
+.page-head h1 { font-size: clamp(1.9rem, 3.8vw, 2.8rem); }
+.page-head p { max-width: 62ch; font-size: 1.1rem; margin: 0; }
+
+/* Research */
+.theme-detail { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.theme-detail article { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 18px; padding: 24px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.theme-detail article > div { min-width: 0; }
+.theme-detail img { width: 64px; height: 64px; }
+.theme-detail h3 { font-size: .92rem; letter-spacing: .1em; text-transform: uppercase; color: var(--navy); margin-bottom: 4px; }
+.theme-detail .q { font-style: italic; color: var(--muted); margin: 0 0 8px; }
+.theme-detail ul { margin: 0; padding-left: 1.1em; }
+.theme-detail li { margin-bottom: 4px; }
+.theme-detail li::marker { color: var(--lime); }
+@media (max-width: 820px) { .theme-detail { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 420px) { .theme-detail article { grid-template-columns: minmax(0, 1fr); } }
+.project { display: grid; grid-template-columns: 13rem minmax(0, 1fr); gap: 28px; padding: 28px 0; border-top: 1px solid var(--line); }
+.project:last-of-type { border-bottom: 1px solid var(--line); }
+.project > div { min-width: 0; }
+.project-meta { font: 600 .84rem/1.55 var(--f-display); color: var(--muted); display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+.project h3 { font: 700 1.25rem/1.3 var(--f-display); margin: 0 0 8px; }
+.status { display: inline-block; padding: 3px 10px; border-radius: 999px; font: 700 .64rem/1.55 var(--f-display); letter-spacing: .12em; text-transform: uppercase; }
+.status.ongoing { background: #e3f3e8; color: var(--green); }
+.status.done { border: 1px solid var(--line); color: var(--muted); }
+.kv { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 8px 16px; margin: 16px 0 0; font-size: .97rem; }
+.kv dt { font: 700 .66rem/2 var(--f-display); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.kv dd { margin: 0; min-width: 0; }
+@media (max-width: 720px) {
+  .project { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .project-meta { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 10px; }
+  .kv { grid-template-columns: minmax(0, 1fr); gap: 2px; } .kv dd { margin-bottom: 8px; }
+}
+.impact { background: var(--tint); border-radius: 12px; padding: clamp(20px, 3vw, 32px); display: grid; grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); gap: 24px; }
+.impact time { font: 400 .82rem var(--f-mono); color: var(--muted); }
+.impact h3 { font: 700 1.2rem/1.3 var(--f-display); }
+@media (max-width: 720px) { .impact { grid-template-columns: minmax(0, 1fr); gap: 8px; } }
+
+/* Publications */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 28px; }
+.filter { appearance: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 9px 14px; border-radius: 999px; font: 600 .82rem/1 var(--f-display); cursor: pointer; }
+.filter:hover { border-color: var(--blue); }
+.filter[aria-pressed="true"] { background: var(--navy); color: #ffffff; border-color: var(--navy); }
+.filter .n { font-variant-numeric: tabular-nums; opacity: .7; margin-left: 4px; }
+.year { display: grid; grid-template-columns: 6rem minmax(0, 1fr); gap: 20px; padding: 22px 0; border-top: 1px solid var(--line); }
+.year h2 { font: 700 1.3rem/1.2 var(--f-display); font-variant-numeric: tabular-nums; margin: 0; color: var(--teal); }
+.pubs { list-style: none; margin: 0; padding: 0; display: grid; gap: 20px; }
+.pub { min-width: 0; }
+.pub .type { font: 700 .64rem/1.4 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--green); margin: 0 0 4px; }
+.pub p { margin: 0; }
+.pub .title { font-weight: 600; }
+.pub .src { font: 500 .82rem/1.5 var(--f-display); margin-top: 4px; }
+.empty { padding: 22px 0; border-top: 1px solid var(--line); color: var(--muted); }
+@media (max-width: 560px) { .year { grid-template-columns: minmax(0, 1fr); gap: 10px; } }
+
+/* Team */
+.subhead { font: 700 .74rem/1.3 var(--f-display); letter-spacing: .16em; text-transform: uppercase; color: var(--green); margin: 0 0 18px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+.leader { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: clamp(22px, 4vw, 48px); align-items: start; }
+.leader > div { min-width: 0; }
+@media (max-width: 700px) { .leader { grid-template-columns: minmax(0, 1fr); } }
+.avatar {
+  aspect-ratio: 1; max-width: 100%; border-radius: 50%; display: grid; place-items: center; overflow: hidden;
+  background: linear-gradient(180deg, transparent 63%, var(--lime) 63% 68%, transparent 68% 73%, var(--blue) 73%), var(--tint-2);
+  color: var(--navy); font: 700 2.4rem/1 var(--f-display); letter-spacing: .03em;
+}
+.avatar span { transform: translateY(-14%); }
+.avatar.lg { width: 200px; }
+.avatar.sm { width: 92px; font-size: 1.4rem; }
+.photo-col { display: flex; flex-direction: column; align-items: flex-start; }
+.photo-note { margin-top: 8px; width: 200px; text-align: center; }
+.person-name { font: 700 1.22rem/1.25 var(--f-display); margin: 0; }
+.leader .person-name { font-size: clamp(1.5rem, 2.8vw, 1.9rem); }
+.degrees { font-weight: 500; color: var(--muted); font-size: .85em; }
+.role { font: 700 .72rem/1.5 var(--f-display); letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin: 6px 0 12px; }
+.bio { margin: 0 0 12px; }
+.members { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.member { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 18px; padding: 22px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; align-content: start; }
+.member > div { min-width: 0; }
+.member .bio { font-size: .97rem; }
+.member.add { background: var(--todo-bg); border: 1px dashed var(--todo); display: block; grid-column: 1 / -1; }
+@media (max-width: 760px) { .members { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 420px) { .member { grid-template-columns: minmax(0, 1fr); } }
+.plinks { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.plinks a, .plinks span { display: inline-block; padding: 5px 11px; border: 1px solid var(--line); border-radius: 999px; font: 600 .74rem/1.2 var(--f-display); text-decoration: none; color: var(--ink); }
+.plinks a:hover { border-color: var(--blue); color: var(--blue); }
+.plinks span { border-style: dashed; border-color: var(--todo); color: var(--todo); }
+
+/* Contact */
+.contact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(24px, 4vw, 56px); }
+.contact-grid > div { min-width: 0; }
+.addr { font-style: normal; font-size: 1.06rem; line-height: 1.6; margin-bottom: 10px; }
+.coords { font: 400 .8rem/1.5 var(--f-mono); color: var(--muted); }
+.contact-list { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 14px; }
+.contact-list li { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 12px; align-items: baseline; padding-top: 14px; border-top: 1px solid var(--line); }
+.contact-list .k { font: 700 .66rem/1.5 var(--f-display); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+@media (max-width: 720px) { .contact-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* Footer (light) */
+.site-footer { background: var(--tint-2); color: var(--ink); }
+.site-footer::before { content: ""; display: block; height: 3px; background: var(--brand); }
+.site-footer .wrap { padding-block: 40px 28px; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 28px 40px; }
+.f-brand { display: flex; align-items: center; gap: 14px; }
+.f-brand img { height: 64px; width: auto; }
+.f-themes { font: 700 .66rem/1.6 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--teal); margin: 16px 0 0; }
+.f-nav { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, max-content)); gap: 10px 32px; align-content: start; }
+.f-nav a { color: var(--navy); text-decoration: none; font: 700 .78rem/1.3 var(--f-display); letter-spacing: .1em; text-transform: uppercase; }
+.f-nav a:hover { color: var(--green); }
+.f-small { grid-column: 1 / -1; border-top: 1px solid #cfe0dc; padding-top: 16px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; font: 500 .78rem/1.4 var(--f-display); color: var(--muted); }
+@media (max-width: 720px) { .site-footer .wrap { grid-template-columns: minmax(0, 1fr); } }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="draftbar" role="note">
+  <div class="wrap">Draft for review. Items marked <span class="todo">To add</span> or <span class="todo">Confirm</span> need input from the group.</div>
+</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#home" aria-label="GREENSHIP Maritime Energy Transition Research Group, home">
+      <img src="assets/brand/greenship-emblem.png" alt="" width="257" height="200">
+      <span class="wordmark"><span class="name">GREENSHIP</span><span class="sub">Maritime Energy Transition Research Group</span></span>
+    </a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg>Menu
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="#home" data-nav="home">Home</a></li>
+        <li><a href="#research" data-nav="research">Research</a></li>
+        <li><a href="#publications" data-nav="publications">Publications</a></li>
+        <li><a href="#team" data-nav="team">Team</a></li>
+        <li><a href="#contact" data-nav="contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ===================== HOME ===================== -->
+<div data-page="home" id="page-home">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Maynooth University · School of Business</p>
+        <h1>Research for the maritime energy transition</h1>
+        <p class="lede">We study how ships and ports can cut their emissions: which fuels make sense, where green shipping corridors can start, how to bring shore power to Irish ports, and how to plan the sector's path to carbon neutrality by 2050. We work with ports, ferry operators and public agencies around the Irish Sea.</p>
+        <div class="actions">
+          <a class="btn primary" href="#research">Our research</a>
+          <a class="btn" href="#team">Meet the team</a>
+        </div>
+      </div>
+      <figure class="chart">
+        <div class="chart-head"><span>Featured project</span><span>Irish Sea</span></div>
+        <svg viewBox="0 0 560 272" role="img" aria-labelledby="chart-title">
+          <title id="chart-title">Chart of the Irish Sea showing the proposed Central Corridor ferry route between Dublin Port and Holyhead</title>
+          <g>
+            <line class="g-line" x1="24.4" y1="0" x2="24.4" y2="246"/>
+            <line class="g-line" x1="146" y1="0" x2="146" y2="246"/>
+            <line class="g-line" x1="268" y1="0" x2="268" y2="246"/>
+            <line class="g-line" x1="390" y1="0" x2="390" y2="246"/>
+            <line class="g-line" x1="511" y1="0" x2="511" y2="246"/>
+            <line class="g-line" x1="0" y1="20.4" x2="560" y2="20.4"/>
+            <line class="g-line" x1="0" y1="101.8" x2="560" y2="101.8"/>
+            <line class="g-line" x1="0" y1="183.2" x2="560" y2="183.2"/>
+            <line class="g-line" x1="0" y1="246" x2="560" y2="246"/>
+          </g>
+          <g class="g-lab">
+            <text x="24.4" y="262" text-anchor="middle">6.5°W</text>
+            <text x="146" y="262" text-anchor="middle">6.0°W</text>
+            <text x="268" y="262" text-anchor="middle">5.5°W</text>
+            <text x="390" y="262" text-anchor="middle">5.0°W</text>
+            <text x="511" y="262" text-anchor="middle">4.5°W</text>
+            <text x="554" y="16" text-anchor="end">53.6°N</text>
+            <text x="554" y="97.5" text-anchor="end">53.4°N</text>
+            <text x="554" y="179" text-anchor="end">53.2°N</text>
+          </g>
+          <text class="area" x="34" y="60">IRELAND</text>
+          <text class="area" x="500" y="222" text-anchor="end">WALES</text>
+          <text class="sea-name" x="290" y="214" text-anchor="middle">Irish Sea</text>
+          <path id="route" class="route" d="M98.6 123.7 Q 290 92 479 138.8"/>
+          <text class="route-lab" x="290" y="88" text-anchor="middle">CENTRAL CORRIDOR</text>
+          <circle class="ship" r="4.5" cx="0" cy="0">
+            <animateMotion id="ship-anim" dur="14s" repeatCount="indefinite" keyPoints="0;1;1;0;0" keyTimes="0;.42;.5;.92;1" calcMode="linear"><mpath href="#route"/></animateMotion>
+          </circle>
+          <circle class="port" cx="98.6" cy="123.7" r="6"/>
+          <circle class="port" cx="479" cy="138.8" r="6"/>
+          <text class="port-name" x="92" y="150">Dublin Port</text>
+          <text class="port-xy" x="92" y="164">53.35°N 6.20°W</text>
+          <text class="port-name" x="486" y="166" text-anchor="end">Holyhead</text>
+          <text class="port-xy" x="486" y="180" text-anchor="end">53.31°N 4.63°W</text>
+        </svg>
+        <figcaption>
+          <h3>Greening the Irish Sea: The Central Corridor</h3>
+          <p class="note">Feasibility study for a green shipping corridor on the Dublin–Holyhead route, 2024–25. Maynooth University was the academic partner.</p>
+          <dl class="facts">
+            <div><dt>Most practical fuel</dt><dd>Methanol</dd></div>
+            <div><dt>GHG reduction</dt><dd>Up to 80%</dd></div>
+            <div><dt>Traffic, 2024</dt><dd>≈1.6 m passengers, 6,000+ sailings</dd></div>
+          </dl>
+          <p class="note" style="margin:0">Source: <a href="https://www.maynoothuniversity.ie/node/560650">Maynooth University news, Sept 2025</a> · <a href="#research">Project details</a></p>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section tint">
+    <div class="wrap">
+      <p class="eyebrow">Research themes</p>
+      <div class="themes">
+        <article class="theme">
+          <img src="assets/brand/icon-alternative-fuels.png" alt="" width="128" height="128">
+          <div>
+            <h3>Alternative fuels</h3>
+            <p>We compare the cost, emissions and readiness of biofuels, methanol, ammonia, hydrogen and electrofuels for Irish shipping.</p>
+          </div>
+        </article>
+        <article class="theme">
+          <img src="assets/brand/icon-green-corridors.png" alt="" width="128" height="128">
+          <div>
+            <h3>Green shipping corridors</h3>
+            <p>We assess routes where zero-emission shipping can start first, such as Dublin–Holyhead, and build frameworks for pre-feasibility studies.</p>
+          </div>
+        </article>
+        <article class="theme">
+          <img src="assets/brand/icon-onshore-power.png" alt="" width="128" height="128">
+          <div>
+            <h3>Onshore power supply</h3>
+            <p>We study the costs and benefits of connecting ships at berth to shore power in Irish ports.</p>
+          </div>
+        </article>
+        <article class="theme">
+          <img src="assets/brand/icon-decarbonisation.png" alt="" width="128" height="128">
+          <div>
+            <h3>Decarbonisation</h3>
+            <p>We build roadmaps and policy analysis to bring Ireland's maritime sector to carbon neutrality by 2050.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <article class="report">
+        <div>
+          <p class="eyebrow">Report · Marine Institute · 2025</p>
+          <h2>Transitioning Ireland's maritime sector to carbon neutrality</h2>
+          <p class="sub">Alternative fuels, infrastructure, and policy pathways</p>
+          <p class="authors">Patrick Rigot-Müller, Alina Kovalenko, Kamalakkannan Sivappirakasam and Joseph Coughlan. Marine Institute Research for Policy Awards 2023.</p>
+          <p>The report sets out how Ireland's maritime industry can reach carbon neutrality by 2050. It assesses alternative fuels, the port infrastructure they need, and the rules that drive the transition, and it proposes a phased roadmap.</p>
+          <div class="actions"><a class="btn primary" href="https://oar.marine.ie/entities/publication/5ebcd6e0-4f44-42e5-82ae-8da0161cc68d">Read the report</a></div>
+        </div>
+        <ul class="findings">
+          <li><span class="k">Cost of inaction</span><span><span class="big">€1.3 bn+</span>in penalties a year by 2050 under business as usual</span></li>
+          <li><span class="k">Fuels assessed</span><span>Biofuels, methanol, ammonia, hydrogen and electrofuels</span></li>
+          <li><span class="k">Policy drivers</span><span>EU Green Deal, FuelEU Maritime and the IMO Net-Zero Framework</span></li>
+          <li><span class="k">Roadmap</span><span>Onshore power supply by 2030, preparing for FuelEU revisions in 2027–28, and green shipping corridors on high-emission routes in the longer term</span></li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section tint">
+    <div class="wrap">
+      <div class="section-head"><h2>Latest news</h2></div>
+      <ul class="news">
+        <li>
+          <time datetime="2026-07-03">3 Jul 2026</time>
+          <div>
+            <h3><a href="https://www.maynoothuniversity.ie/faculty-social-sciences/news/mu-research-green-shipping-corridors-informs-new-national-ports-policy">Our research on green shipping corridors informs the new National Ports Policy</a></h3>
+            <p>The draft revision of Ireland's National Ports Policy highlights our work on green shipping corridors, onshore power supply and alternative marine fuels.</p>
+          </div>
+        </li>
+        <li>
+          <time datetime="2025-09-23">23 Sep 2025</time>
+          <div>
+            <h3><a href="https://www.maynoothuniversity.ie/node/560650">Study finds Dublin–Holyhead could be a green shipping corridor</a></h3>
+            <p>Methanol was found to be the most practical alternative fuel for the route, with up to 80% lower greenhouse gas emissions.</p>
+          </div>
+        </li>
+        <li>
+          <time datetime="2024-10-18">18 Oct 2024</time>
+          <div>
+            <h3><a href="https://www.maynoothuniversity.ie/node/552244">Maynooth University partners on the Dublin to Holyhead green corridor</a></h3>
+            <p>A feasibility study led by Irish Ferries and Stena Line, funded through the International Green Corridor Fund.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head"><h2>On LinkedIn</h2></div>
+      <div class="posts">
+        <article class="post">
+          <div class="post-head"><span class="src">LinkedIn post</span><time datetime="2024-12-20">20 Dec 2024</time></div>
+          <p class="post-body"><span class="todo">To add</span> The first two or three sentences of the post, and its image if it has one.</p>
+          <p class="post-foot"><a href="https://www.linkedin.com/feed/update/urn:li:activity:7275863566904086528/">View post on LinkedIn ↗</a></p>
+        </article>
+        <article class="post follow">
+          <div class="post-head"><span>Follow the group</span></div>
+          <p class="post-body">Updates from our projects, conferences and publications.</p>
+          <p class="post-foot"><span class="todo">To add</span> Link to the group's LinkedIn page</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tint">
+    <div class="wrap">
+      <h2>Funders and partners</h2>
+      <div class="logo-groups">
+        <div>
+          <p class="label">Host institution</p>
+          <ul class="logo-grid two">
+            <li class="logo-tile"><img src="assets/logos/maynooth-university.png" alt="Maynooth University" width="456" height="200"></li>
+            <li class="logo-tile"><img class="square" src="assets/logos/mu-school-of-business.jpg" alt="School of Business, Maynooth University" width="200" height="200"></li>
+          </ul>
+        </div>
+        <div>
+          <p class="label">Funders and partners</p>
+          <ul class="logo-grid three">
+            <li class="logo-tile"><img src="assets/logos/marine-institute.png" alt="Marine Institute" width="636" height="160"></li>
+            <li class="logo-tile pending"><span class="logo-name">Irish Maritime Development Office (IMDO)</span><span class="todo">Logo</span></li>
+            <li class="logo-tile"><img src="assets/logos/department-of-transport.png" alt="Department of Transport" width="614" height="200"></li>
+          </ul>
+        </div>
+      </div>
+      <p class="note" style="margin-bottom:32px"><span class="todo">To add</span> Logo file for IMDO (SVG or PNG).</p>
+      <div class="partner-groups">
+        <div>
+          <p class="label">Other research funding</p>
+          <ul class="chips">
+            <li>Sustainable Energy Authority of Ireland (SEAI)</li>
+            <li>International Green Corridor Fund</li>
+          </ul>
+        </div>
+        <div>
+          <p class="label">Central Corridor project partners</p>
+          <ul class="chips">
+            <li>Irish Ferries</li>
+            <li>Stena Line</li>
+            <li>Dublin Port Company</li>
+            <li>Holyhead Port Authority</li>
+            <li>Ricardo</li>
+            <li>EDF R&amp;D</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== RESEARCH ===================== -->
+<div data-page="research" id="page-research" hidden>
+  <section class="page-head">
+    <div class="wrap">
+      <p class="eyebrow">Research</p>
+      <h1>What we work on</h1>
+      <p>Our research supports the maritime industry's move to zero emissions. We combine cost modelling, life cycle assessment, stakeholder research and policy analysis, and we work closely with ports, operators and public agencies.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="theme-detail">
+        <article>
+          <img src="assets/brand/icon-alternative-fuels.png" alt="" width="128" height="128">
+          <div>
+            <h3>Alternative fuels</h3>
+            <p class="q">Which fuels make sense, and at what cost?</p>
+            <ul>
+              <li>Cost assessment of alternative marine fuels for Ireland</li>
+              <li>Life cycle assessment of marine fuel pathways</li>
+              <li>Biofuels, methanol, ammonia, hydrogen and electrofuels</li>
+            </ul>
+          </div>
+        </article>
+        <article>
+          <img src="assets/brand/icon-green-corridors.png" alt="" width="128" height="128">
+          <div>
+            <h3>Green shipping corridors</h3>
+            <p class="q">Where can zero-emission shipping start first?</p>
+            <ul>
+              <li>Dublin–Holyhead Central Corridor feasibility study</li>
+              <li>A pre-feasibility framework for corridors in Northern Europe</li>
+              <li>Stakeholder research with ports and operators</li>
+            </ul>
+          </div>
+        </article>
+        <article>
+          <img src="assets/brand/icon-onshore-power.png" alt="" width="128" height="128">
+          <div>
+            <h3>Onshore power supply</h3>
+            <p class="q">What does it take to plug ships in at berth?</p>
+            <ul>
+              <li>Cost–benefit assessment of shore-side electricity in Ireland</li>
+              <li>Port electrification, funded by SEAI</li>
+              <li>Onshore power by 2030 in the national roadmap</li>
+            </ul>
+          </div>
+        </article>
+        <article>
+          <img src="assets/brand/icon-decarbonisation.png" alt="" width="128" height="128">
+          <div>
+            <h3>Decarbonisation</h3>
+            <p class="q">How does the sector reach carbon neutrality by 2050?</p>
+            <ul>
+              <li>Decarbonisation roadmap for the Irish maritime sector</li>
+              <li>Economic impact of EU emission rules on Irish shipping</li>
+              <li>Input to Ireland's National Ports Policy</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tint">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <p class="note" style="margin-bottom:18px"><span class="todo">Confirm</span> Project periods, funders and links. Add any projects that are missing.</p>
+
+      <article class="project">
+        <div class="project-meta"><span class="status ongoing">Ongoing</span><span>Since 2024</span></div>
+        <div>
+          <h3>Decarbonisation roadmap for the Irish maritime sector</h3>
+          <p class="prose">With the Marine Institute, we are developing pathways to guide the Irish maritime industry towards carbon neutrality by 2050. The work includes stakeholder research and data analysis on potential green shipping corridors across the Irish Sea, and an assessment of the socio-economic impact of environmental policy, with a focus on alternative maritime fuels and onshore power supply.</p>
+          <dl class="kv">
+            <dt>Funding</dt><dd>Marine Institute, Research for Policy Awards 2023</dd>
+            <dt>Team</dt><dd>Patrick Rigot-Müller, Alina Kovalenko, Kamalakkannan Sivappirakasam, Joseph Coughlan</dd>
+            <dt>Output</dt><dd><a href="https://oar.marine.ie/entities/publication/5ebcd6e0-4f44-42e5-82ae-8da0161cc68d">Transitioning Ireland's maritime sector to carbon neutrality</a> (report, 2025)</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-meta"><span class="status done">Completed</span><span>Oct 2024 – 2025</span></div>
+        <div>
+          <h3>Greening the Irish Sea: The Central Corridor</h3>
+          <p class="prose">A feasibility study for a green shipping corridor on the Dublin–Holyhead route, the busiest roll-on/roll-off route between Ireland and the UK. The study assessed low-carbon energy pathways, reviewed policy and regulation, and built a business case.</p>
+          <dl class="kv">
+            <dt>Findings</dt><dd>Methanol is the most practical alternative fuel for the route and could cut greenhouse gas emissions by up to 80%. Battery-electric options were judged infeasible because of the high energy demand.</dd>
+            <dt>Led by</dt><dd>Irish Ferries and Stena Line, supported by Ricardo</dd>
+            <dt>Partners</dt><dd>Maynooth University (academic partner), Dublin Port Company, Holyhead Port Authority, EDF R&amp;D</dd>
+            <dt>Funding</dt><dd>International Green Corridor Fund (governments of Ireland and the UK), delivered with Innovate UK and the Marine Institute</dd>
+            <dt>More</dt><dd><a href="https://www.maynoothuniversity.ie/node/560650">Study results (MU news)</a></dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-meta"><span class="status done">Completed</span><span>PhD, 2023</span></div>
+        <div>
+          <h3>Cleaner alternative technologies for the Irish maritime industry</h3>
+          <p class="prose">Doctoral research on how cleaner technologies can support green practices in Irish shipping. It produced cost assessments of alternative marine fuels and a cost–benefit assessment of shore-side electricity in Irish ports.</p>
+          <dl class="kv">
+            <dt>Researcher</dt><dd>Dr Ketan Gore</dd>
+            <dt>Outputs</dt><dd><a href="#publications">See publications</a></dd>
+          </dl>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Policy impact</h2>
+      <div class="impact">
+        <div><time datetime="2026-07-03">3 July 2026</time></div>
+        <div>
+          <h3>Cited in the draft revision of Ireland's National Ports Policy</h3>
+          <p class="prose" style="margin:0">The government's draft revision of the National Ports Policy highlights our work on green shipping corridors, onshore power supply and alternative marine fuels. The work has been funded by the Marine Institute and the Sustainable Energy Authority of Ireland. <a href="https://www.maynoothuniversity.ie/faculty-social-sciences/news/mu-research-green-shipping-corridors-informs-new-national-ports-policy">Read the news story</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== PUBLICATIONS ===================== -->
+<div data-page="publications" id="page-publications" hidden>
+  <section class="page-head">
+    <div class="wrap">
+      <p class="eyebrow">Publications</p>
+      <h1>Publications</h1>
+      <p>Peer-reviewed articles, reports, conference papers and theses from the group, newest first.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="todo-block" style="margin-bottom:28px">
+        <p><span class="todo">To add</span>Any further publications from group members (BibTeX, ORCID or Google Scholar). Entries below come from Maynooth University staff profiles, MURAL and the Marine Institute Open Access Repository.</p>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filter by type">
+        <button class="filter" type="button" id="f-all" data-filter="all" aria-pressed="true">All<span class="n"></span></button>
+        <button class="filter" type="button" id="f-article" data-filter="article" aria-pressed="false">Journal articles<span class="n"></span></button>
+        <button class="filter" type="button" id="f-report" data-filter="report" aria-pressed="false">Reports<span class="n"></span></button>
+        <button class="filter" type="button" id="f-conference" data-filter="conference" aria-pressed="false">Conference papers<span class="n"></span></button>
+        <button class="filter" type="button" id="f-other" data-filter="other" aria-pressed="false">Chapters and commentary<span class="n"></span></button>
+        <button class="filter" type="button" id="f-thesis" data-filter="thesis" aria-pressed="false">Theses<span class="n"></span></button>
+      </div>
+
+      <div id="pub-list">
+        <div class="year" data-year="2026">
+          <h2>2026</h2>
+          <ul class="pubs">
+            <li class="pub" data-type="article">
+              <p class="type">Journal article</p>
+              <p>Sivappirakasam, K., Rigot-Müller, P., &amp; Coughlan, J. (2026). <span class="title">Marine fuel pathways for net-zero GHG shipping: A review of life cycle assessment evidence and policy alignment.</span> <cite>Transportation Research Part E: Logistics and Transportation Review</cite>, 213, 104983.</p>
+              <p class="src"><a href="https://doi.org/10.1016/j.tre.2026.104983">doi:10.1016/j.tre.2026.104983</a></p>
+            </li>
+            <li class="pub" data-type="other">
+              <p class="type">Commentary</p>
+              <p>Rigot-Muller, P., Kovalenko, A., Sivappirakasam, K., &amp; Raspotnik, A. (2026). <span class="title">The EU's Arctic Policy Consultation was a Success — But Not the One You Think.</span> <cite>High North News</cite>.</p>
+              <p class="src"><span class="todo">To add</span> Link to the article</p>
+            </li>
+          </ul>
+        </div>
+        <div class="year" data-year="2025">
+          <h2>2025</h2>
+          <ul class="pubs">
+            <li class="pub" data-type="report">
+              <p class="type">Report</p>
+              <p>Rigot-Müller, P., Kovalenko, A., Sivappirakasam, K., &amp; Coughlan, J. (2025). <span class="title">Transitioning Ireland's maritime sector to carbon neutrality: Alternative fuels, infrastructure, and policy pathways.</span> Marine Institute Research for Policy Awards 2023. Marine Institute.</p>
+              <p class="src"><a href="https://oar.marine.ie/entities/publication/5ebcd6e0-4f44-42e5-82ae-8da0161cc68d">Marine Institute Open Access Repository</a></p>
+            </li>
+            <li class="pub" data-type="article">
+              <p class="type">Journal article</p>
+              <p>Zaatar, T., Cheaitou, A., Faury, O., &amp; Rigot-Muller, P. (2025). <span class="title">Arctic sea ice thickness prediction using machine learning: A long short-term memory model.</span> <cite>Annals of Operations Research</cite>, 345.</p>
+              <p class="src"><a href="https://doi.org/10.1007/s10479-024-06457-9">doi:10.1007/s10479-024-06457-9</a> · <a href="https://mural.maynoothuniversity.ie/id/eprint/20786/">Full text (MURAL)</a></p>
+            </li>
+            <li class="pub" data-type="other">
+              <p class="type">Book chapter</p>
+              <p>Kavanagh, E., Kovalenko, A., &amp; Rigot-Muller, P. (2025). <span class="title">Ireland in Arctic Research: A Growing Scientific Presence.</span> In <cite>Arctic Yearbook 2025</cite>. Arctic Portal.</p>
+              <p class="src"><a href="https://www.arcticyearbook.com/arctic-yearbook/2025/2025-emerging-voices/565-ireland-in-arctic-research-a-growing-scientific-presence">Arctic Yearbook</a></p>
+            </li>
+            <li class="pub" data-type="conference">
+              <p class="type">Conference paper</p>
+              <p>Sivappirakasam, K., Rigot-Muller, P., &amp; Coughlan, J. (2025). <span class="title">Green Shipping Corridors potential in Northern Europe: A framework for pre-feasibility studies.</span> International Association of Maritime Economists (IAME) Conference, Bergen, Norway, 24–27 June 2025.</p>
+            </li>
+            <li class="pub" data-type="conference">
+              <p class="type">Conference presentation</p>
+              <p>Kovalenko, A., Sivappirakasam, K., Rigot-Muller, P., &amp; Coughlan, J. (2025). <span class="title">Economic impact of EU emission initiatives for alternative fuel transition in the Irish maritime industry.</span> SIGA2 Conference, Antwerp, 7–9 May 2025, and Irish Transport Research Network Conference, Trinity College Dublin, 28–29 May 2025.</p>
+            </li>
+          </ul>
+        </div>
+        <div class="year" data-year="2024">
+          <h2>2024</h2>
+          <ul class="pubs">
+            <li class="pub" data-type="article">
+              <p class="type">Journal article</p>
+              <p>Fedi, L., Faury, O., Etienne, L., Cheaitou, A., &amp; Rigot-Muller, P. (2024). <span class="title">Application of the IMO taxonomy on casualty investigation: Analysis of 20 years of marine accidents along the North-East Passage.</span> <cite>Marine Policy</cite>, 162, 106061.</p>
+              <p class="src"><a href="https://doi.org/10.1016/j.marpol.2024.106061">doi:10.1016/j.marpol.2024.106061</a></p>
+            </li>
+          </ul>
+        </div>
+        <div class="year" data-year="2023">
+          <h2>2023</h2>
+          <ul class="pubs">
+            <li class="pub" data-type="article">
+              <p class="type">Journal article</p>
+              <p>Gore, K., Rigot-Muller, P., &amp; Coughlan, J. (2023). <span class="title">Cost-benefit assessment of shore side electricity: An Irish perspective.</span> <cite>Journal of Environmental Management</cite>, 326, 116755.</p>
+              <p class="src"><a href="https://mural.maynoothuniversity.ie/id/eprint/17120/">MURAL record</a></p>
+            </li>
+            <li class="pub" data-type="thesis">
+              <p class="type">PhD thesis</p>
+              <p>Gore, K. (2023). <span class="title">Facilitating "green practices" within the Irish maritime industry from use of cleaner alternative technologies.</span> PhD thesis, Maynooth University.</p>
+              <p class="src"><a href="https://mural.maynoothuniversity.ie/id/eprint/18849/">MURAL record</a></p>
+            </li>
+          </ul>
+        </div>
+        <div class="year" data-year="2022">
+          <h2>2022</h2>
+          <ul class="pubs">
+            <li class="pub" data-type="article">
+              <p class="type">Journal article</p>
+              <p>Gore, K., Rigot-Muller, P., &amp; Coughlan, J. (2022). <span class="title">Cost assessment of alternative fuels for maritime transportation in Ireland.</span> <cite>Transportation Research Part D: Transport and Environment</cite>, 110, 103416.</p>
+              <p class="src"><a href="https://mural.maynoothuniversity.ie/id/eprint/17121/">MURAL record</a></p>
+            </li>
+          </ul>
+        </div>
+        <p class="empty" id="pub-empty" hidden>Nothing listed in this category yet.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== TEAM ===================== -->
+<div data-page="team" id="page-team" hidden>
+  <section class="page-head">
+    <div class="wrap">
+      <p class="eyebrow">Team</p>
+      <h1>Our team</h1>
+      <p>Researchers at the Maynooth University School of Business working on the maritime energy transition.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="subhead">Group leader</p>
+      <article class="leader">
+        <div class="photo-col">
+          <div class="avatar lg" aria-hidden="true"><span>PR</span></div>
+          <p class="note photo-note"><span class="todo">Photo</span></p>
+        </div>
+        <div>
+          <h2 class="person-name">Dr Patrick Rigot-Müller <span class="degrees">(PhD)</span></h2>
+          <p class="role">Assistant Professor, Operations and Supply Chain · School of Business</p>
+          <p class="bio prose">Patrick coordinates the Sustainability and Climate Change research beacon in the School of Business. His research covers ports and maritime transport, alternative fuels, Arctic shipping and sustainable supply chains. He has led Marine Institute and SEAI-funded work on decarbonising Irish shipping and electrifying ports, and Maynooth's part in the Dublin–Holyhead green shipping corridor study. This work is highlighted in the 2026 draft revision of Ireland's National Ports Policy.</p>
+          <p class="bio prose">Before Maynooth he worked at Normandy Business School, Newcastle University and the University of Hull, where he joined the Low Carbon Shipping project. He holds a PhD in Industrial Engineering from Mines de Paris.</p>
+          <p class="note" style="margin-bottom:12px"><span class="todo">Confirm</span> Role as group leader. Bio drafted from Patrick's Maynooth profile.</p>
+          <ul class="plinks">
+            <li><a href="https://www.maynoothuniversity.ie/faculty-social-sciences/our-people/patrick-rigot-muller">Maynooth profile</a></li>
+            <li><a href="https://www.researchgate.net/profile/Patrick-Rigot-Muller">ResearchGate</a></li>
+            <li><a href="https://www.linkedin.com/in/patrick-rigot-muller-9a39411/">LinkedIn</a></li>
+            <li><span>Google Scholar</span></li>
+            <li><span>ORCID</span></li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section tint">
+    <div class="wrap">
+      <p class="subhead">Current members</p>
+      <div class="members">
+        <article class="member">
+          <div class="avatar sm" aria-hidden="true"><span>KS</span></div>
+          <div>
+            <h3 class="person-name">Kamalakkannan Sivappirakasam</h3>
+            <p class="role"><span class="todo">Confirm role</span></p>
+            <p class="bio">Kamalakkannan works on life cycle assessment of marine fuels, green shipping corridors and the economic effects of EU emission rules on Irish shipping. He is lead author of a 2026 review in <cite>Transportation Research Part E</cite> on marine fuel pathways for net-zero shipping, and co-author of the group's 2025 Marine Institute report. <span class="todo">To add</span> Degrees and background.</p>
+            <ul class="plinks">
+              <li><a href="https://www.researchgate.net/profile/Kamalakkannan-Sivappirakasam">ResearchGate</a></li>
+              <li><span>Google Scholar</span></li>
+              <li><span>LinkedIn</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="member">
+          <div class="avatar sm" aria-hidden="true"><span>AK</span></div>
+          <div>
+            <h3 class="person-name">Dr Alina Kovalenko <span class="degrees">(PhD, MSc)</span></h3>
+            <p class="role">Postdoctoral Research Fellow</p>
+            <p class="bio">Alina works with the Marine Institute on decarbonisation pathways for the Irish maritime industry. She coordinates the project, leads stakeholder research and analyses data on potential green shipping corridors across the Irish Sea. She holds a PhD in Business (transport economics and maritime logistics) from Nord University, where she was a PhD Research Fellow at the Centre for High North Logistics, and an MSc in Logistics from Molde University College. Her interests include ports and maritime logistics, sustainable shipping and Arctic shipping.</p>
+            <ul class="plinks">
+              <li><a href="https://www.maynoothuniversity.ie/node/548279">Maynooth profile</a></li>
+              <li><a href="https://www.researchgate.net/profile/Alina-Kovalenko">ResearchGate</a></li>
+              <li><a href="https://www.linkedin.com/in/alina-kovalenko-0b280986">LinkedIn</a></li>
+              <li><span>Google Scholar</span></li>
+              <li><span>ORCID</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="member">
+          <div class="avatar sm" aria-hidden="true"><span>JC</span></div>
+          <div>
+            <h3 class="person-name">Prof Joseph Coughlan <span class="degrees">(PhD, MSc, BComm)</span></h3>
+            <p class="role">Professor and Head of School · School of Business</p>
+            <p class="bio">Joseph leads the School of Business at Maynooth University. His research covers management control systems, sustainability and business relationships. He is a co-author of the group's work on maritime decarbonisation, including cost assessments of alternative fuels and shore-side electricity in Ireland, the 2026 review of marine fuel pathways and the 2025 Marine Institute report. He holds a PhD from Warwick Business School and has supervised 17 PhD students.</p>
+            <ul class="plinks">
+              <li><a href="https://www.maynoothuniversity.ie/people/joseph-coughlan">Maynooth profile</a></li>
+              <li><span>Google Scholar</span></li>
+              <li><span>LinkedIn</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="member">
+          <div class="avatar sm" aria-hidden="true"><span>KG</span></div>
+          <div>
+            <h3 class="person-name">Dr Ketan Gore <span class="degrees">(PhD)</span></h3>
+            <p class="role"><span class="todo">Confirm role</span></p>
+            <p class="bio">Ketan's PhD at Maynooth University (2023) examined how cleaner alternative technologies can support green practices in the Irish maritime industry. His published work covers cost assessments of alternative marine fuels and of shore-side electricity in Irish ports.</p>
+            <ul class="plinks">
+              <li><a href="https://mural.maynoothuniversity.ie/view/creators/Gore=3AKetan=3A=3A.html">MURAL publications</a></li>
+              <li><span>Google Scholar</span></li>
+              <li><span>LinkedIn</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="member add">
+          <p class="label" style="color:var(--todo)">To add</p>
+          <p style="margin:0">For each further member: name and degrees, role and project, a bio of 80–200 words, a square photo, and links to Google Scholar, ORCID, ResearchGate or LinkedIn.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="subhead">Past members</p>
+      <div class="todo-block">
+        <p><span class="todo">To add</span>Former researchers and students, with their role in the group and where they are now (optional).</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== CONTACT ===================== -->
+<div data-page="contact" id="page-contact" hidden>
+  <section class="page-head">
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <h1>Get in touch</h1>
+      <p>We welcome contact from industry, ports, public bodies and prospective students who share an interest in greener shipping.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap contact-grid">
+      <div>
+        <p class="label">Address</p>
+        <address class="addr">
+          GREENSHIP: Maritime Energy Transition Research Group<br>
+          School of Business<br>
+          TSI Building, North Campus<br>
+          Maynooth University<br>
+          Maynooth, Co. Kildare, Ireland
+        </address>
+        <p class="coords">53.381°N 6.592°W</p>
+        <ul class="contact-list">
+          <li><span class="k">Email</span><span><span class="todo">To add</span></span></li>
+          <li><span class="k">Phone</span><span><span class="todo">Optional</span></span></li>
+          <li><span class="k">LinkedIn</span><span><span class="todo">To add</span></span></li>
+          <li><span class="k">Bluesky / X</span><span><span class="todo">Optional</span></span></li>
+        </ul>
+      </div>
+      <div>
+        <p class="label">Work with us</p>
+        <h2>PhD, postdoc and industry collaboration</h2>
+        <p class="prose">If you are interested in a PhD or postdoctoral position, or want to explore a joint project on maritime decarbonisation, please email the group with a short description of your interests.</p>
+        <p class="note"><span class="todo">Confirm</span> Office location for the group, and whether to list open positions here.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <div class="f-brand">
+        <img src="assets/brand/greenship-emblem.png" alt="" width="257" height="200">
+        <span class="wordmark"><span class="name">GREENSHIP</span><span class="sub">Maritime Energy Transition Research Group</span></span>
+      </div>
+      <p class="f-themes">Alternative fuels · Green shipping corridors · Onshore power supply · Decarbonisation</p>
+    </div>
+    <ul class="f-nav">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#publications">Publications</a></li>
+    </ul>
+    <div class="f-small">
+      <span>© 2026 GREENSHIP · School of Business, Maynooth University</span>
+      <span>Maynooth, Co. Kildare, Ireland</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var pages = Array.prototype.slice.call(document.querySelectorAll('[data-page]'));
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('[data-nav]'));
+  var nav = document.getElementById('site-nav');
+  var menuBtn = document.getElementById('menu-btn');
+
+  function closeMenu() { nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); }
+  menuBtn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+
+  function route(scroll) {
+    var id = (location.hash || '#home').slice(1);
+    if (!pages.some(function (p) { return p.getAttribute('data-page') === id; })) id = 'home';
+    pages.forEach(function (p) { p.hidden = p.getAttribute('data-page') !== id; });
+    navLinks.forEach(function (a) {
+      if (a.getAttribute('data-nav') === id) a.setAttribute('aria-current', 'page');
+      else a.removeAttribute('aria-current');
+    });
+    closeMenu();
+    if (scroll) window.scrollTo(0, 0);
+  }
+  window.addEventListener('hashchange', function () { route(true); });
+  route(false);
+
+  var filters = Array.prototype.slice.call(document.querySelectorAll('.filter'));
+  var pubs = Array.prototype.slice.call(document.querySelectorAll('.pub'));
+  var years = Array.prototype.slice.call(document.querySelectorAll('.year'));
+  var empty = document.getElementById('pub-empty');
+  filters.forEach(function (b) {
+    var t = b.getAttribute('data-filter');
+    var n = t === 'all' ? pubs.length : pubs.filter(function (p) { return p.getAttribute('data-type') === t; }).length;
+    b.querySelector('.n').textContent = n;
+    b.addEventListener('click', function () {
+      filters.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      var shown = 0;
+      pubs.forEach(function (p) {
+        var on = t === 'all' || p.getAttribute('data-type') === t;
+        p.hidden = !on; if (on) shown++;
+      });
+      years.forEach(function (y) { y.hidden = !y.querySelector('.pub:not([hidden])'); });
+      empty.hidden = shown > 0;
+    });
+  });
+
+  try {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      var anim = document.getElementById('ship-anim');
+      if (anim) { var ship = anim.parentNode; anim.remove(); ship.setAttribute('cx', '289.4'); ship.setAttribute('cy', '111.6'); }
+    }
+  } catch (e) {}
+})();
+</script>
+
+</body>
+</html>

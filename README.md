@@ -1,14 +1,15 @@
-# GREENSHIP – Maritime Energy Transition Research Group
+# GreenShip – Maritime Energy Transition Research Group
 
-Website of the GREENSHIP research group, School of Business, Maynooth University.
+Website of the GreenShip research group, School of Business, Maynooth University.
 Static site (HTML + CSS + a little JavaScript, no build step).
 
 ## Structure
 
 - `index.html` – the whole site. Pages are sections switched by the URL hash: `#home`, `#research`, `#publications`, `#team`, `#contact`.
-- `assets/brand/` – GREENSHIP logo, emblem, favicon and the four theme icons.
+- `assets/brand/` – GreenShip emblem, wordmark, favicon and the four theme icons.
 - `assets/logos/` – partner and funder logos.
-- `v1/` – the first (blue) version of the site, kept for reference.
+- `v2/` – the second (GREENSHIP gradient) version of the site.
+- `v1/` – the first (blue) version of the site.
 
 ## Publish with GitHub Pages
 
