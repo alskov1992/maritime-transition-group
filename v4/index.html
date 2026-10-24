@@ -180,6 +180,52 @@ h3 { font: 700 1.08rem/1.3 var(--f-display); margin: 0 0 8px; }
 @media (max-width: 820px) { .glas-story { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 560px) { .themes { grid-template-columns: minmax(0, 1fr); } }
 
+/* Podcast player card */
+.podcast { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: clamp(20px, 3.5vw, 40px); align-items: start; background: var(--tint); border-radius: 16px; padding: clamp(18px, 3vw, 32px); }
+.podcast > div { min-width: 0; }
+.pod-cover {
+  position: relative; aspect-ratio: 1; width: 100%; border-radius: 12px; overflow: hidden; color: #ffffff;
+  background:
+    radial-gradient(circle at 50% 44%, transparent 0 34px, rgba(255,255,255,.22) 34px 36px, transparent 36px 52px, rgba(255,255,255,.16) 52px 54px, transparent 54px 70px, rgba(255,255,255,.1) 70px 72px, transparent 72px),
+    linear-gradient(140deg, #133f79 0%, #1665ad 40%, #12928c 72%, #74bd42 100%);
+  display: grid; place-items: center;
+}
+.pod-cover svg { width: 46px; height: 46px; margin-top: -26px; }
+.pod-cover-label { position: absolute; left: 14px; right: 14px; bottom: 12px; font: 700 .7rem/1.3 var(--f-display); letter-spacing: .12em; text-transform: uppercase; }
+.pod-show { display: flex; align-items: center; gap: 8px; font: 700 .7rem/1.4 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--green); margin: 0 0 8px; }
+.pod-show svg { width: 16px; height: 16px; flex: none; }
+.pod-title { font: 700 clamp(1.3rem, 2.4vw, 1.75rem)/1.2 var(--f-display); margin: 0 0 6px; }
+.pod-guest { font: 600 .9rem/1.4 var(--f-display); color: var(--muted); margin: 0 0 18px; }
+.pod-player { display: flex; align-items: center; gap: 16px; margin: 0 0 16px; }
+.pod-play {
+  flex: none; width: 60px; height: 60px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--navy); color: #ffffff; text-decoration: none; border: 0; cursor: pointer;
+  box-shadow: 0 6px 18px rgba(19, 63, 121, .25); transition: background .2s, transform .2s;
+}
+.pod-play:hover { background: var(--green); color: #ffffff; transform: scale(1.04); }
+.pod-play svg { width: 24px; height: 24px; }
+.pod-play .i-pause { display: none; }
+.podcast.playing .pod-play .i-play { display: none; }
+.podcast.playing .pod-play .i-pause { display: block; }
+.pod-wave { flex: 1; min-width: 0; height: 48px; display: flex; align-items: center; gap: 3px; cursor: pointer; overflow: hidden; }
+.pod-wave span { flex: 1 1 0; min-width: 0; border-radius: 2px; background: #c9dcd7; transition: background .2s; }
+.pod-wave span.on { background: linear-gradient(180deg, #12928c, #1665ad); }
+.podcast.playing .pod-wave span.on:last-of-type { background: var(--lime); }
+.pod-time { flex: none; font: 500 .8rem/1 var(--f-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.pod-desc { margin: 0 0 16px; max-width: 64ch; }
+.pod-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.pod-actions .btn { padding: 11px 16px; }
+.pod-note { font: 500 .8rem/1.4 var(--f-display); color: var(--muted); }
+.pod-embed { margin-top: 18px; }
+.pod-embed iframe { display: block; width: 100%; border: 0; border-radius: 12px; }
+@media (max-width: 720px) {
+  .podcast { grid-template-columns: minmax(0, 1fr); }
+  .pod-cover { max-width: 180px; }
+}
+@media (max-width: 520px) { .pod-wave { gap: 2px; } }
+@media (max-width: 420px) { .pod-time { display: none; } .pod-play { width: 52px; height: 52px; } }
+@media (prefers-reduced-motion: reduce) { .pod-play { transition: none; } }
+
 /* Featured report */
 .report { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); }
 .report > div, .report > ul { min-width: 0; }
@@ -517,6 +563,38 @@ h3 { font: 700 1.08rem/1.3 var(--f-display); margin: 0 0 8px; }
 
   <section class="section">
     <div class="wrap">
+      <p class="eyebrow">Listen</p>
+      <article class="podcast" id="podcast">
+        <div class="pod-cover" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"/></svg>
+          <span class="pod-cover-label">Research @ MU<br>School of Business</span>
+        </div>
+        <div>
+          <p class="pod-show"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"/></svg>Podcast · Research @ MU School of Business</p>
+          <h2 class="pod-title">Charting a Course to Net Zero: Decarbonising Maritime Transport</h2>
+          <p class="pod-guest">with Dr Patrick Rigot-Müller · 21 Oct 2026 · 9 min</p>
+          <div class="pod-player">
+            <a class="pod-play" id="pod-play" href="https://open.spotify.com/episode/19xLd6R2MlEnqQZxYh1BAv" target="_blank" rel="noopener" aria-label="Play the episode">
+              <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+              <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor"/></svg>
+            </a>
+            <div class="pod-wave" id="pod-wave" role="slider" aria-label="Episode position" aria-valuemin="0" aria-valuemax="553" aria-valuenow="0" tabindex="0"></div>
+            <span class="pod-time"><span id="pod-pos">0:00</span> / 9:13</span>
+          </div>
+          <p class="pod-desc">Shipping carries most of the world's trade, yet the industry is still unsure which fuels will power its future. Patrick explains how ship-tracking data, industry data and interviews with industry partners and policymakers show how shipping fleets operate.</p>
+          <div class="pod-actions">
+            <a class="btn" href="https://open.spotify.com/episode/19xLd6R2MlEnqQZxYh1BAv" target="_blank" rel="noopener">Listen on Spotify ↗</a>
+            <button class="btn" type="button" id="pod-share">Share</button>
+            <span class="pod-note" id="pod-note" role="status"></span>
+          </div>
+          <div class="pod-embed" id="pod-embed" hidden></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section tint">
+    <div class="wrap">
       <article class="report">
         <div>
           <p class="eyebrow">Report · Marine Institute · 2025</p>
@@ -536,7 +614,7 @@ h3 { font: 700 1.08rem/1.3 var(--f-display); margin: 0 0 8px; }
     </div>
   </section>
 
-  <section class="section tint">
+  <section class="section">
     <div class="wrap">
       <div class="section-head"><h2>Latest news</h2></div>
       <ul class="news">
@@ -586,7 +664,7 @@ h3 { font: 700 1.08rem/1.3 var(--f-display); margin: 0 0 8px; }
     </div>
   </section>
 
-  <section class="section">
+  <section class="section tint">
     <div class="wrap">
       <div class="section-head"><h2>On LinkedIn</h2></div>
       <div class="posts">
@@ -604,7 +682,7 @@ h3 { font: 700 1.08rem/1.3 var(--f-display); margin: 0 0 8px; }
     </div>
   </section>
 
-  <section class="section tint">
+  <section class="section">
     <div class="wrap">
       <h2>Funders and partners</h2>
       <div class="logo-groups" style="margin-bottom:32px">
@@ -1216,6 +1294,99 @@ h3 { font: 700 1.08rem/1.3 var(--f-display); margin: 0 0 8px; }
       if (anim) { var ship = anim.parentNode; anim.remove(); ship.setAttribute('cx', '289.4'); ship.setAttribute('cy', '111.6'); }
     }
   } catch (e) {}
+})();
+</script>
+
+<script>
+/* Podcast card: a waveform that follows the official Spotify player.
+   On a normal website the play button loads Spotify's embed in place and plays it;
+   where other sites cannot be embedded (such as a preview), the button simply opens Spotify. */
+(function () {
+  var URL = 'https://open.spotify.com/episode/19xLd6R2MlEnqQZxYh1BAv';
+  var URI = 'spotify:episode:19xLd6R2MlEnqQZxYh1BAv';
+  var DUR = 553;
+  var card = document.getElementById('podcast'); if (!card) return;
+  var play = document.getElementById('pod-play');
+  var wave = document.getElementById('pod-wave');
+  var pos = document.getElementById('pod-pos');
+  var embed = document.getElementById('pod-embed');
+  var note = document.getElementById('pod-note');
+  var share = document.getElementById('pod-share');
+
+  var N = 64, seed = 11, bars = [];
+  function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+  for (var i = 0; i < N; i++) {
+    var b = document.createElement('span');
+    var h = 0.22 + 0.78 * Math.abs(Math.sin(i * 0.47) * 0.6 + Math.sin(i * 0.13) * 0.4) * (0.55 + 0.45 * rnd());
+    b.style.height = Math.round(Math.min(1, h) * 100) + '%';
+    wave.appendChild(b); bars.push(b);
+  }
+  function fmt(t) { t = Math.max(0, Math.round(t)); return Math.floor(t / 60) + ':' + ('0' + (t % 60)).slice(-2); }
+  function progress(sec, total) {
+    total = total || DUR; var f = Math.min(1, sec / total), lit = Math.round(f * N);
+    for (var i = 0; i < N; i++) bars[i].classList.toggle('on', i < lit);
+    pos.textContent = fmt(sec); wave.setAttribute('aria-valuenow', Math.round(sec));
+  }
+
+  var host = location.hostname || '';
+  var canEmbed = /^https?:$/.test(location.protocol) && !/claude|anthropic|localhost/i.test(host);
+  var ctrl = null, loading = false, total = DUR;
+
+  function plainEmbed() {
+    if (embed.querySelector('iframe')) return;
+    embed.innerHTML = '<iframe title="Spotify player: Charting a Course to Net Zero" src="https://open.spotify.com/embed/episode/19xLd6R2MlEnqQZxYh1BAv?utm_source=generator" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>';
+  }
+  function start() {
+    embed.hidden = false;
+    if (ctrl) { ctrl.togglePlay(); return; }
+    if (loading) return; loading = true;
+    var fallback = setTimeout(plainEmbed, 4000);
+    window.onSpotifyIframeApiReady = function (API) {
+      clearTimeout(fallback);
+      var el = document.createElement('div'); embed.innerHTML = ''; embed.appendChild(el);
+      API.createController(el, { uri: URI, width: '100%', height: 152 }, function (c) {
+        ctrl = c;
+        c.addListener('ready', function () { c.play(); });
+        c.addListener('playback_update', function (e) {
+          var d = e.data || {}; if (d.duration) total = d.duration / 1000;
+          progress((d.position || 0) / 1000, total);
+          card.classList.toggle('playing', !d.isPaused);
+          play.setAttribute('aria-label', d.isPaused ? 'Play the episode' : 'Pause the episode');
+        });
+      });
+    };
+    var sc = document.createElement('script');
+    sc.src = 'https://open.spotify.com/embed/iframe-api/v1'; sc.async = true;
+    sc.onerror = function () { clearTimeout(fallback); plainEmbed(); };
+    document.body.appendChild(sc);
+  }
+  if (canEmbed) {
+    play.addEventListener('click', function (e) { e.preventDefault(); start(); });
+    function seekTo(x) {
+      var r = wave.getBoundingClientRect(), f = Math.min(1, Math.max(0, (x - r.left) / r.width));
+      if (ctrl) { ctrl.seek(f * total); progress(f * total, total); } else { start(); }
+    }
+    wave.addEventListener('click', function (e) { seekTo(e.clientX); });
+    wave.addEventListener('keydown', function (e) {
+      if (!ctrl) return;
+      var cur = parseFloat(wave.getAttribute('aria-valuenow')) || 0;
+      if (e.key === 'ArrowRight') { ctrl.seek(Math.min(total, cur + 15)); e.preventDefault(); }
+      if (e.key === 'ArrowLeft') { ctrl.seek(Math.max(0, cur - 15)); e.preventDefault(); }
+    });
+  } else {
+    wave.addEventListener('click', function () { play.click(); });
+  }
+
+  share.addEventListener('click', function () {
+    var data = { title: 'Charting a Course to Net Zero: Decarbonising Maritime Transport', url: URL };
+    function copied(ok) { note.textContent = ok ? 'Link copied' : URL; }
+    try {
+      if (canEmbed && navigator.share) { navigator.share(data).catch(function () {}); return; }
+    } catch (e) {}
+    try { navigator.clipboard.writeText(URL).then(function () { copied(true); }, function () { copied(false); }); }
+    catch (e) { copied(false); }
+  });
+  progress(0);
 })();
 </script>
 
