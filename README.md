@@ -8,6 +8,7 @@ Static site (HTML + CSS + a little JavaScript, no build step).
 - `index.html` – the whole site. Pages are sections switched by the URL hash: `#home`, `#research`, `#publications`, `#team`, `#contact`.
 - `assets/brand/` – GreenShip emblem, wordmark, favicon and the four theme icons.
 - `assets/logos/` – partner and funder logos.
+- `v5/` – GlasShip content of v2 in a Swiss-style Helvetica design (grey and black sections, wide chart banner).
 - `v4/` – GlasShip version with the definition of "glas" at the top of the home page, under the logo.
 - `v2/` – GlasShip version with the "Why GlasShip?" story below the hero.
 - `v1/` – the first (blue) version of the site.
